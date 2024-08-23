@@ -106,7 +106,13 @@ $$y(t)=\sum f(nT_s)\text{Sa}(\frac{\omega_s t}{2}-n\pi)$$
 频域采样定理
 $$F(\omega)=\sum F(\frac{\omega_m n} {2}) \text{Sa}(\omega t - n\pi)$$
 
-
+## 调制解调
+调制
+$$y(t)=f(t)\cos(\omega_0t)$$
+$$Y(\omega)=\frac{1}{2}\left( F(\omega-\omega_0)+F(\omega+\omega_0) \right) \quad \omega \le \omega_m \ll \omega_0$$
+解调
+$$G(\omega)=\frac{1}{2}F(\omega) + \frac{1}{4}(F(\omega+2\omega_0)-F(\omega-2\omega_0))$$
+只需通过低通滤波器 $\omega_m \le \omega_c \le 2\omega_0-\omega_m$
 # appendix
 微分方程
 
