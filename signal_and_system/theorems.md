@@ -69,4 +69,115 @@ $$\frac{K}{(p-p_i)^{r_i}}\quad \to \quad \frac{K}{(r-1)!}t^{r-1}e^{p_i t}U(t)$$
 
 *卷积积分表*
 
-$$y(t)=f(t)\ast h(t)\quad (尽在线性非时变系统)$$
+$$y(t)=f(t)\ast h(t)\quad (只在线性非时变系统)$$
+
+**求解步骤** $h(t)\to y(t)$
+
+卷积积分的数值计算
+
+# Chapter 3
+**连续信号频域分析**
+
+**线性时不变(LTI)系统的特征函数**
+
+依$y(t)=\int^{\infin}_{-\infin} h(\tau) f(t-\tau) \text{d} \tau \sim f(t)$, 满足$f(t-\tau)=f(t)K(\tau)\quad(\forall t,\tau)$, $\frac{f(t-\tau)}{f(t)}=\text{const}, \therefore f(t)=ke^{\eta t}$。说明系统特征函数为所有复指数
+
+**完备正交函数集**
+正交, 归一化, 正交复变函数集, 完备
+
+$$f(t)=c_if_i(t),\quad c_i=\frac{\int f(t)\dot f_i(t)\text{d}t}{\int f_i(t)\dot f_i(t)\text{d}t}$$
+
+*常见的正交函数集*
+
+$$\{\cos n \Omega,, \sin m \Omega\}\\
+\{e^{-in\Omega t}\}\\
+\{\text{Sa}(\frac{\pi}{T}(t-nT))\}$$
+- **proof**
+  对$\int^{\infin}_{-\infin} \text{Sa}(x-\pi n)\text{Sa}(x-\pi m)$构造围道
+  $$\int_{C_\infin^-}...=0(\text{Jordan}),\quad \int_{\delta_m},\quad \int_{\delta_n},\quad ...$$
+  根据小圆弧定理, 仅当奇点重合时原积分不为零
+
+$$\{w(k,t)\}\\ \{P_n(t)\}$$
+
+**周期信号的傅里叶级数表示**
+
+$$\begin{cases}
+  a_n&=&\frac{2}{T}\int^{T/2}_{T/2}f(t)\cos(n\omega_0 t)\text{d}t\\
+  b_n&=&\frac{2}{T}\int^{T/2}_{T/2}f(t)\sin(n\omega_0 t)\text{d}t
+\end{cases}$$
+
+$$F_n=\frac{1}{T}\int^{T/2}_{T/2}f(t)e^{-j\omega_0 t}\text{d}t=\begin{cases}
+  \frac{a_0}{2} & n=0\\
+  \frac{1}{2}(a_n-jb_n)& n>0\\
+  \frac{1}{2}(a_n+jb_n)& n<0
+\end{cases}$$
+
+傅里叶级数的收敛: 略
+
+傅里叶级数与对称性的关系
+
+性质:
+$$\begin{matrix}
+  f(t-t_0)  &=&\sum F_n e^{jn\omega_0(t-t_0)}\\
+  f^{(k)}(t)&=&\sum (jn\omega_0)^kF_ne^{jn\omega_0}\\
+  f(t)\cos(\omega_0 t)&=&\sum \frac{F_{n-1}+F_{n+1}}{2}e^{jn\omega_0 t}\\
+  f(t)\sin(\omega_0 t)&=&\sum \frac{F_{n-1}-F_{n+1}}{2j}e^{jn\omega_0 t}
+\end{matrix}$$
+
+周期信号频谱的特点: 离散性, 谐波性, 收敛性
+
+对周期矩形信号频谱$F_n=\frac{E\tau}{T}\text{Sa}\left(\frac{n\omega_0 t}{2}\right)$的分析: 有效频谱宽度$B_\omega =\frac{2\pi}{\tau}$
+
+功率谱
+
+**非周期信号频谱**
+
+傅里叶变换
+$$\mathscr{F}(f)=\int^{\infin}_{-\infin}f(t)e^{-j\omega t}\text{d}t\\
+\mathscr{F}^{-1}(f)= \frac{1}{2\pi} \int^{\infin}_{-\infin}f(t)e^{j\omega t}\text{d}\omega$$
+
+典型信号的频谱函数
+$$\begin{matrix}
+  e^{-\alpha t}U(t) \to \frac{1}{\alpha+j\omega}\\
+  e^{-\alpha |t|} \to \frac{2\alpha}{\alpha^2+\omega^2}\\
+  e^{-\alpha|t|}\text{sgn}(t) \to -j\frac{2\omega}{\alpha^2+\omega^2}\\
+  \text{sgn}t \to \frac{2}{j\omega}\quad (不满足绝对可积)\\
+  1 \to 2\pi\delta(\omega)\\
+  U(t) \to \pi\delta(t)+\frac{1}{j\omega}\\
+  \delta(t) \to 1\\
+  G_{\tau,E}(t) \to E\tau\text{Sa}\left(\frac{\omega \tau}{2}\right)\\
+  (1-|t|/\tau)G_\tau(t) \to \tau\left(\text{Sa}(\frac{\omega t}{2})\right)^2 \quad(三角脉冲信号)
+\end{matrix}$$
+
+性质
+$$\begin{matrix}
+  F(t) \to 2\pi f(-\omega)\\
+  f(-t) \to F(-\omega)\\
+  f(at) \to \frac{1}{|a|}F(\frac{\omega}{a})\\
+  f(t\pm t_0) \to F(\omega)e^{\pm j\omega t_0}\\
+  e^{\pm j\omega_0 t}f(t) \to F(\omega\mp \omega_0)\\
+  \frac{\text{d}^nf(t)}{\text{d}t^n} \to (j\omega)^n F(\omega)\\
+  (-jt)^n f(t) \to \frac{\text{d}^nF(\omega)}{\text{d}\omega^n}\\
+  \int^t_{-\infin} f(\tau)\text{d}t \to \frac{F(\omega)}{j\omega}+\pi F(0)\delta(\omega)\\
+  \frac{1}{-jt}f(t)+\pi f(0)\delta(t) \to \int^\omega_{-\infin} F(\nu)\text{d}\nu\\
+  f_1(t)\ast f_2(t) \to F_1(\omega)F_2(\omega)\\
+  f_1(t)f_2(t) \to \frac{1}{2\pi}F_1(\omega)\ast F_2(\omega)\\
+  \int f_1\dot f_2 \to \frac{1}{2\pi}\int F_1\dot F_2
+\end{matrix}$$
+
+
+**周期信号的傅里叶变换**
+$$F(\omega)=2\pi\sum F_n\delta(\omega-n\omega_0)$$
+
+**功率谱与能量谱**
+
+# Chapter 4
+**系统频域分析**
+
+频域系统函数$H(\omega)=\mathscr{F}(h)$
+
+对周期信号的响应:
+$$\begin{matrix}
+  f(t)=\cos(\omega t) \to y(t)=|H(\omega)|\cos(\omega t+\varphi)\\
+  f(t) \to F_0+2\sum|F_n||H(n\omega)|\cos(n\omega t+\theta+\varphi)
+\end{matrix}$$
