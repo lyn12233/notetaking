@@ -181,3 +181,8 @@ $$\begin{matrix}
   f(t)=\cos(\omega t) \to y(t)=|H(\omega)|\cos(\omega t+\varphi)\\
   f(t) \to F_0+2\sum|F_n||H(n\omega)|\cos(n\omega t+\theta+\varphi)
 \end{matrix}$$
+
+对非周期信号的响应:
+$$Y(\omega)=H(\omega)F(\omega)$$
+
+**频域系统函数的求法**
