@@ -24,7 +24,7 @@
 
 3. 饱和区:
 
-    $$v_{GS}>V_{GS(th)},\quad 0<v_{DS}>v_{GS}-v_{GS(th)}$$
+    $$v_{GS}>V_{GS(th)},\quad v_{DS}>v_{GS}-v_{GS(th)}$$
 
     靠近漏极电压小,出现**预夹断**, $i_D$恒定, $v_{DS}$对$i_D$的影响为**沟道调制效应**。
 ### 3.1.3 EMOS特性
@@ -50,6 +50,7 @@ $$i_D=\frac{\mu_nC_{OX}W}{l}\left((v_{GS}-V_{GS(th)})v_{DS}-\frac{1}{2}v_{DS}^2\
     \frac{\mu_nC_{OX}W}{l}(v_{GS}-V_{GS(th)})v_{DS} & v_{DS}\ll ...\\
     \frac{\mu_nC_{OX}W}{2l} (v_{GS}-V_{GS(th)})^2 & 饱和区
 \end{cases}$$
+*注* : $i_D$达到饱和区不再增加
 
 饱和区沟道调制
 $$i_D=...\left(1-\frac{v_{DS}}{V_A}\right)=...(1+\lambda v_{DS})$$
@@ -59,11 +60,12 @@ $\lambda=-\frac{1}{V_A}$为沟道调制系数
 
 $i_d=g_mv_{gs}+g_{ds}v_{ds}$ ,则
 
-$$g_m=2\sqrt{ \frac{\mu_nC_{OX}W}{2l} I_DQ(1+\lambda V_{DSQ}) }$$
+$$g_m =\frac{\partial i_d}{\partial v_{ds}} =2\sqrt{ \frac{\mu_nC_{OX}W}{2l} I_DQ(1+\lambda V_{DSQ}) }$$
 
-$$g_{ds}=\frac{\lambda}{1+\lambda V_{DSQ}} I_DQ$$
+$$g_{ds}=...=\frac{\lambda}{1+\lambda V_{DSQ}} I_{DQ} \approx \lambda I_{DQ}$$
 
-其中输出电阻 $r_{ds}$
+其中输出电阻 $r_{ds}=g_{ds}^{-1}$
+*注* : 小信号模型在饱和区下。
 
 $\mu=g_mr_{ds}=v_{ds}/v_{gs}$
 为放大因子
@@ -82,9 +84,12 @@ $$i_D=2n\mu_0C_{OX}V_T^2(W/L)\left[\ln\left(1+e^{\frac{v_{GS}-V_{GS(th)}}{2nV_T}
 ### 3.1.7 BSIM3模型
 ### 3.1.8 4种MOS管比较
 
+$|v_{GS}|$ 足够大则工作, $|v_{DS}|$ 足够大则处于饱和区, P沟道相对为负值
+, 耗尽型(D)在GS短接下导通
+
 ## 3.2 结型场效应管(JFET)
 
-$$i_D=\frac{I_DSS}{V_{GS(off)}^2}\left((v_{GS}-V_{GS(off)})v_{DS}-\frac{1}{2}v_{DS}^2\right)$$
+$$i_D=\frac{I_{DSS}}{V_{GS(off)}^2}\left((v_{GS}-V_{GS(off)})v_{DS}-\frac{1}{2}v_{DS}^2\right)$$
 $$R_{(on)}=\frac{V_{GS(off)}^2}{2I_{DSS}}\cdot\frac{1}{v_{GS}-V_{GS(off)}}$$
 
 大信号$i_D'=... (1-\frac{v_{GS}}{V_A})$
