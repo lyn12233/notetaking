@@ -1,6 +1,6 @@
 # 3 场效应管(field effect transistor)
 分类:
-- j型(junction fet)
+- 结型(junction fet)
 - 金属-氧化物-半导体型(metal-oxide semiconductor FET)
 
 ## 3.1 MOS场效应管

@@ -131,9 +131,10 @@ $$g_m=\frac{\beta}{r_{be}}\approx \frac{I_{CQ}}{V_T}\approx 38.5V^{-1} I_{CQ}$$
 
 $$\beta(\omega)=\frac{\beta_0}{1=j\frac{\omega}{\omega_{\beta}}}$$
 
-  ,$\omega_{\beta}=\frac{1}{r_{b'e}(C_{b'c}+C_{b'e})}$为转折点角频率
+其中$\omega_{\beta}=\frac{1}{r_{b'e}(C_{b'c}+C_{b'e})}$ 为转折点角频率
 
-$$\omega_T=\beta_0\omega_{\beta}$$为特征角频率, 此时失去放大能力
+$\omega_T=\beta_0\omega_{\beta}$
+为特征角频率, 此时失去放大能力
 
 $\alpha$ 的转折点角频率 $\omega_{\alpha}=(1+\beta)\omega_{\beta}$
 
