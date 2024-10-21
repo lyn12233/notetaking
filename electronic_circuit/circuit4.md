@@ -49,6 +49,6 @@ nomenclature
 | |共射(CE)|共基(CB)|共集(CC)|
 |-|-|-|-|
 |$R_i$|$r_{bb'}+r_{b'e}$|$(1+\beta)^{-1}(r_{bb'}+r_{b'e})$|$r_{bb'}+r_{b'e}+(1+\beta)R_E'$|
-|$R_o'$|$r_{ce}$|$r_{ce}+\beta (R_s\parallel r_{be})$|$\to(1+\beta)^{-1}(r_{be}+R_s)$|
+|$R_o'$|$r_{ce}$|$r_{ce}+\beta \frac{R_sr_{ce}}{R_s+r_{be}}$|$\to(1+\beta)^{-1}(r_{be}+R_s)$|
 |$A_{in}$|$\beta$|$-\alpha$|$-(1+\beta)$|
 |$A_v$|$-g_mR_L'$|$g_mR_L'$|$\to 1$|
