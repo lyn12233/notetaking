@@ -35,7 +35,8 @@
 
 稳压二极管保护:
 
-衬底效应:
+**衬底效应**:
+$$\eta=\frac{g_{mb}}{g_m},\quad(i_D=g_mv_{gs}+g_{mb}v_{bs}+g_{ds}v_{ds})$$
 
 ### 3.1.4 DMOS特性
 
@@ -60,7 +61,7 @@ $\lambda=-\frac{1}{V_A}$为沟道调制系数
 
 $i_d=g_mv_{gs}+g_{ds}v_{ds}$ ,则
 
-$$g_m =\frac{\partial i_d}{\partial v_{ds}} =2\sqrt{ \frac{\mu_nC_{OX}W}{2l} I_DQ(1+\lambda V_{DSQ}) }$$
+$$g_m =\frac{\partial i_d}{\partial v_{ds}} =2\sqrt{ \frac{\mu_nC_{OX}W}{2l} I_{DQ}(1+\lambda V_{DSQ}) }$$
 
 $$g_{ds}=...=\frac{\lambda}{1+\lambda V_{DSQ}} I_{DQ} \approx \lambda I_{DQ}$$
 

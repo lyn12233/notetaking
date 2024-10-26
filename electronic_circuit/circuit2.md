@@ -110,7 +110,7 @@ $$g_m=\frac{\beta}{r_{be}}\approx \frac{I_{CQ}}{V_T}\approx 38.5V^{-1} I_{CQ}$$
 
 1. 放大区
    
-   厄尔利电压(early voltage)和基区宽度调制(base-width modulation)
+   **厄尔利电压**(early voltage)和基区宽度调制(base-width modulation)
    $$i_C \approx I_Se^{v_{BE}/V_T}\left(1-\frac{v_{CE}}{V_A} \right)$$
    $$r_{ce}=\frac{\partial v_{CE}}{\partial i_C}= \left| \frac{V_A}{I_{CQ}} \right|$$ 
 

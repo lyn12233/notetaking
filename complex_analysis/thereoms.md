@@ -115,4 +115,10 @@ $$\text{Res}[f,z_0]=\frac{P(z_0)}{Q'(z_0)}$$
 
 ## 5.3 留数的应用
 
+- $\int^{2\pi}_0 f(\cos\theta,\sin\theta)\text{d}\theta$
+$$=\oint_{|z|=1} f\left(\frac{z^2+1}{2z},\frac{z^2-1}{2iz}\right)\frac{\text{d}z}{iz}$$
+- $\int^{\infin}_{-\infin}f(x)\text{d}x$
+- $\int^{\infin}_{-\infin}f(x)e^{\alpha i x}\text{d}x\quad \alpha>0$
+- 
+
 ## 5.4 对数留数与辐角原理\*
