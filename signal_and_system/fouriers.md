@@ -49,3 +49,27 @@ $$\begin{cases}
     F_n=\frac{a_n-jb_n}{2}&(n\ge 0)\\
     F_{-n}=\frac{a_n+jb_n}{2}&(n\le 0)
 \end{cases}$$
+
+# 拉普拉斯变换
+$$F(s)=\int_{0^-}^{\infin}f(t)e^{-st}\text{d}t$$
+$$\mathscr{L}[f](s)|_{\sigma}=\mathscr{F}[f(t)U(t)e^{-\sigma t}](\omega)\quad s=\sigma+j\omega$$
+$$\mathscr{L}^{-1}=\frac{1}{2\pi j}\int_{|}F(s)e^{st}\text{d}s$$
+$$\mathscr{L}[f](s)|_{\sigma=0}=\mathscr{F}[f](\omega)$$
+
+
+|$f(t)\left(=f(t)U(t)\right)$|$F(s)$|
+|-|-|
+|$f(at)\quad a>0$|$\frac{1}{a}F\left(\frac{s}{a}\right)$|
+|$f(t\pm t_0)$|$F(s)e^{\pm t_0 s}$|
+|$f(t)e^{\pm s_0 t}$|$F(s\mp s_0)$|
+|$f^{(n)}(t)$|$s^nF(s)-\sum_{k=1}^{n}s^{n-k}f^{(k-1)}(0^-)$|
+|$f^{(-n)}(t)$|$s^{-n}F(s)+\sum_{k=1}^{n}s^{k-n-1}f^{(-k)}(0^-)$|
+|$f_1\ast f_2$|$F_1\cdot F_2$|
+|$f_1\cdot f_2$|$\frac{1}{2\pi j}\int F_1(\lambda)F_2(s-\lambda)\text{d}\lambda$|
+|$(-t)^nf(t)$|$F^{(n)}(s)$|
+|$f(t)/t$|$\int^{\infin}_sF(\lambda)\text{d}\lambda$|
+|$$|$$|
+
+初值定理和终值定理：
+$$\lim_{t\to 0^+}f(t)=\lim_{s\to \infin}sF(s)$$
+$$\lim_{t\to\infin}f(t)=\lim_{s\to 0}sF(s)$$

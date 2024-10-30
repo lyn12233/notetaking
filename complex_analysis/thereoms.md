@@ -88,7 +88,7 @@ $$f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C\frac{f(z)}{(z-z_0)^{n+1}}\text{d}z$$
 
 ## 4.3 泰勒级数
 *proof:...*
-$$|R_N|\le\frac{Mq^N}{1-q}\quad\text{where}q=\delta z/r,M=\max|f(z)|$$
+$$|R_N|\le\frac{Mq^N}{1-q}\quad\text{where}\quad q=\delta z/r,M=\max|f(z)|$$
 
 ## 4.4 洛朗级数(laurent)
 $$c_n=\frac{1}{2\pi i}\oint_C\frac{f(z)}{(z-z_0)^{n+1}}\text{d}z$$
