@@ -93,6 +93,6 @@ $|v_{GS}|$ 足够大则工作, $|v_{DS}|$ 足够大则处于饱和区, P沟道�
 $$i_D=\frac{I_{DSS}}{V_{GS(off)}^2}\left((v_{GS}-V_{GS(off)})v_{DS}-\frac{1}{2}v_{DS}^2\right)$$
 $$R_{(on)}=\frac{V_{GS(off)}^2}{2I_{DSS}}\cdot\frac{1}{v_{GS}-V_{GS(off)}}$$
 
-大信号$i_D'=... (1-\frac{v_{GS}}{V_A})$
+大信号 $i_D'=... (1-\frac{v_{GS}}{V_A})$
 
 与MOSFET类似

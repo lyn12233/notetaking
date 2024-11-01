@@ -11,7 +11,10 @@ N型: 施主杂质(donor); P型: 受主杂质(acceptor)
 空穴: positive hole
 
 多/少子热平衡浓度:
-$$n_0p_0=n_i^2 \begin{cases}
+
+$$n_0p_0=n_i^2$$
+
+$$\begin{cases}
     n_0=N_d+p_0 & \text{N, donor}\\
     p_0=N_a+n_0 & \text{P, acceptor}\\
 \end{cases}$$

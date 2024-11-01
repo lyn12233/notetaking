@@ -3,7 +3,7 @@
 - 模式图:
   
 $$\begin{matrix}
-      E\quad\text{(Emittor)}& \leftarrow & I_{\overrightarrow{E}_n},I_{\overrightarrow{C}_{n1}},I_{CEO}
+      E\quad\text{(Emittor)}& \leftarrow & I_{{\overrightarrow{E}}_n},I_{{\overrightarrow{C}}_{n1}},I_{CEO}
       & \leftarrow & C\quad\text{(Collector)}\\
       &\nwarrow \quad I_{E_p}& & I_{CBO} \quad \swarrow&\\
       &\nwarrow&&\swarrow&\\

@@ -43,8 +43,8 @@ nomenclature
 
 | |共源(CS)|共栅(CG)|共漏(CD)|
 |-|-|-|-|
-|$R_i$|$R_G\to \infin$|$R'_S\parallel g_m^{-1}$|$R_G\to\infin$|
-|$R_o$|$r'_{ds}=R_D\parallel r_{ds}\to R_D$|$R_D\parallel [r_{ds}+R_s+g_mR_s r_{ds}]\to R_D$|$R_s'\parallel g_m^{-1}$|
+|$R_i$|$R_G\to \infin$|$R_S'\parallel g_m^{-1}$|$R_G\to\infin$|
+|$R_o$|$r_{ds}'=R_D\parallel r_{ds}\to R_D$|$R_D\parallel [r_{ds}+R_s+g_mR_s r_{ds}]\to R_D$|$R_s'\parallel g_m^{-1}$|
 |$R_o$|$r_{ds}\parallel R_D\to R_D$|$R_o'\parallel R_D\to R_D$|$g_m^{-1}$|
 |$A_v$|$-\frac{g_mR_L'}{1+g_mR_s'}\to -g_m R_L'$|$\to g_mR_L'$|$\left(1+\frac{1}{g_mR_L'}\right)^{-1}\to 1$|
 
@@ -62,8 +62,8 @@ nomenclature
 
 $$\begin{cases}
     R_i &=& R_B\parallel \left(r_{b'e}+R_E\frac{(1+\beta) r_{ce}+R_L'}{r_{ce}+R_L'+R_E}\right) \\
-    R_o &=& R_C\parallel\left(r_{ce}(1+\frac{\beta R_E}{R_E+r_{b'e}+R'_s})\right)\\
-    A_v &=& - \frac{\beta R'_L}{r_{b'e}+(1+\beta)R_E}\\
+    R_o &=& R_C\parallel\left(r_{ce}(1+\frac{\beta R_E}{R_E+r_{b'e}+R_s'})\right)\\
+    A_v &=& - \frac{\beta R_L'}{r_{b'e}+(1+\beta)R_E}\\
 \end{cases}$$
 
 有源负载的共射放大器:
