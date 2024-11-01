@@ -2,13 +2,13 @@
 
 - 模式图:
   
-  $$\begin{matrix}
-        E\quad\text{(Emittor)}& \leftarrow & I_{\overrightarrow{E}_n},I_{\overrightarrow{C}_{n1}},I_{CEO}
-        & \leftarrow & C\quad\text{(Collector)}\\
-        &\nwarrow \quad I_{E_p}& & I_{CBO} \quad \swarrow&\\
-        &\nwarrow&&\swarrow&\\
-        &&B\quad \text{Base}&&
-    \end{matrix}$$
+$$\begin{matrix}
+      E\quad\text{(Emittor)}& \leftarrow & I_{\overrightarrow{E}_n},I_{\overrightarrow{C}_{n1}},I_{CEO}
+      & \leftarrow & C\quad\text{(Collector)}\\
+      &\nwarrow \quad I_{E_p}& & I_{CBO} \quad \swarrow&\\
+      &\nwarrow&&\swarrow&\\
+      &&B\quad \text{Base}&&
+\end{matrix}$$
 
 - 主要讨论NPN型三极管
 
@@ -23,29 +23,34 @@
 电流传输放大系数:
   - 共基极: 
   
-    $$\begin{matrix}
-        \overline{\alpha} &=& I_{C_{n1}}/I_E\\
-        &=& \frac{I_{E_n}}{I_E}\cdot\frac{I_{C_{n1}}}{I_{E_n}} &\quad(\eta_E\eta_B)
-    \end{matrix}$$
+$$\begin{matrix}
+    \overline{\alpha} &=& I_{C_{n1}}/I_E\\
+    &=& \frac{I_{E_n}}{I_E}\cdot\frac{I_{C_{n1}}}{I_{E_n}} &\quad(\eta_E\eta_B)
+\end{matrix}$$
 
   - 共发射极:
   
-    $$\begin{matrix}
-        \overline{\beta} &=& \frac{\overline{\alpha}}{1-\overline{\alpha}}\\
-        &=& \frac{I_C-I_{CBO}}{I_B+I_{CBO}}
-    \end{matrix}$$
+$$\begin{matrix}
+    \overline{\beta} &=& \frac{\overline{\alpha}}{1-\overline{\alpha}}\\
+    &=& \frac{I_C-I_{CBO}}{I_B+I_{CBO}}
+\end{matrix}$$
 
 *减小寄生电流的条件*
 
 ### 2.1.2 电流传输方程
 
 1. **共基极**
-   $$I_C=\overline{\alpha}I_E+I_{CBO}$$
+   
+$$I_C=\overline{\alpha}I_E+I_{CBO}$$
+
 2. **共发射极**
-   $$I_C=\overline{\beta}I_B+I_{CEO},\\
-   其中\quad I_{CEO}=(1+\overline{\beta})I_{CBO}$$
+  
+$$I_C=\overline{\beta}I_B+I_{CEO},\\
+其中\quad I_{CEO}=(1+\overline{\beta})I_{CBO}$$
+
 3. **共集电极**
-   $$I_E=(1+\overline{\beta})I_B+I_{CEO}$$
+
+$$I_E=(1+\overline{\beta})I_B+I_{CEO}$$
 
 ## 2.2 三极管模型
 
@@ -61,12 +66,14 @@ $$\begin{cases}
 电流相互作用:
 
 $$\begin{pmatrix}
-  I_E\\I_C
+  I_E\\
+  I_C
 \end{pmatrix} = \begin{pmatrix}
   1 & -\overline{\alpha}\\
   \overline{\alpha} & -1
 \end{pmatrix}\cdot\begin{pmatrix}
-  I_F\\I_R
+  I_F\\
+  I_R
 \end{pmatrix}$$
 
 通常忽略 $I_R,I_{CBS}$
@@ -77,21 +84,23 @@ $$\begin{pmatrix}
 
 1. 放大
    
-   $I_B\approx \frac{I_S}{\beta}e^{V_{BE}/V_T}$只受发射结控制
-   温度的影响:
+   $I_B\approx \frac{I_S}{\beta}e^{V_{BE}/V_T}$ 只受发射结控制
 
-   $$\begin{cases}
-    \Delta \beta / \beta = 0.005\sim 0.01 \frac{\Delta T}{1K}\\
-    \Delta V_{Be(on)}\downarrow /\Delta T = -(2\sim 2.5)mV/K\\
-    I_{CBO} \sim 2^{T/10}\\
-   \end{cases}$$
+温度的影响:
+
+$$\begin{cases}
+ \Delta \beta / \beta = 0.005\sim 0.01 \frac{\Delta T}{1K}\\
+ \Delta V_{Be(on)}\downarrow /\Delta T = -(2\sim 2.5)mV/K\\
+ I_{CBO} \sim 2^{T/10}\\
+\end{cases}$$
+
 2. 饱和
 
-   $$\begin{cases}
-    V_{BES}\approx V_{BE(on)}=0.7V\\
-    V_{BCS}\approx V_{BC(on)}=0.4V\\
-    V_{CES}\approx 0.3V & (共发射极)
-   \end{cases}$$
+$$\begin{cases}
+ V_{BES}\approx V_{BE(on)}=0.7V\\
+ V_{BCS}\approx V_{BC(on)}=0.4V\\
+ V_{CES}\approx 0.3V & (共发射极)
+\end{cases}$$
   
 3. 截止
 
@@ -118,8 +127,8 @@ $$g_m=\frac{\beta}{r_{be}}\approx \frac{I_{CQ}}{V_T}\approx 38.5V^{-1} I_{CQ}$$
    
    **厄尔利电压**(early voltage)和基区宽度调制(base-width modulation)
 
-   $$i_C \approx I_Se^{v_{BE}/V_T}\left(1-\frac{v_{CE}}{V_A} \right)$$
-   $$r_{ce}=\frac{\partial v_{CE}}{\partial i_C}= \left| \frac{V_A}{I_{CQ}} \right|$$ 
+  $$i_C \approx I_Se^{v_{BE}/V_T}\left(1-\frac{v_{CE}}{V_A} \right)$$
+  $$r_{ce}=\frac{\partial v_{CE}}{\partial i_C}= \left| \frac{V_A}{I_{CQ}} \right|$$ 
 
    $\beta$ 与 $i_C$ 的关系
 
@@ -128,11 +137,13 @@ $$g_m=\frac{\beta}{r_{be}}\approx \frac{I_{CQ}}{V_T}\approx 38.5V^{-1} I_{CQ}$$
   $i_E=0$, 可以视作 $i_C=I_{CBO}\approx 0$
 
 3. 饱和区/反向工作区
-  $$v_{CE}<0.3V$$
+  
+$$v_{CE}<0.3V$$
 
-4. 击穿区
-5. 极限参数
-  $$V_{(BR)CEO},I_{CM},P_{CM}$$
+1. 击穿区
+2. 极限参数
+
+$$V_{(BR)CEO},I_{CM},P_{CM}$$
 
 ### 2.2.4 频率参数
 

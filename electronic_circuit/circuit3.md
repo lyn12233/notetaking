@@ -17,7 +17,7 @@
 1. 截止区:
    
     $v_{GS}\le V_{GS(th)}$
-    在$V_{GS(th)}$附近为亚阈区
+    在 $V_{GS(th)}$ 附近为亚阈区
 2. 非饱和区:
    
     $$v_{GS}>V_{GS(th)},\quad 0<v_{DS}<v_{GS}-v_{GS(th)}$$
