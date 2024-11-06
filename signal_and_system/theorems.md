@@ -1,51 +1,58 @@
-# Chapter 1
+# 1 信号和系统的概念
 
-信号的分类: 确定和随机信号, 连续/离散时间信号, 周期和非周期信号, 功率和能量信号, 有/无时限信号, 有始有终信号, (非)因果信号$f(t)=f(t)U(t)$
+信号的分类: 确定和随机信号, 连续/离散时间信号, 周期和非周期信号, 功率和能量信号, 有/无时限信号, 有始有终信号, (非)因果信号 $f(t)=f(t)U(t)$
 
 常用连续时间信号:
 - 单位跃阶信号
-- 单位门信号$G_{\tau}(t)=U(t+\tau/2)-U(t-\tau/2)$
+- 单位门信号 $G_{\tau}(t)=U(t+\tau/2)-U(t-\tau/2)$
 - 单位冲激信号
-  $$\begin{cases}
+  
+$$\begin{cases}
     (抽样性)& \int^{\infin}_{\infin}f(t)\delta(t-t_0) \text{d}t= f(t_0) \\
     (奇偶性)& \delta(t)=\delta(-t)\\
     (展缩)& \delta(at)=\frac{1}{a}\delta(t) 
-  \end{cases}$$
+\end{cases}$$
 
-- $U(t)$与$\delta(t)$的关系: 显然
+- $U(t)$ 与 $\delta(t)$的关系: 显然
 - 单位冲激偶信号$\delta'(t)=\lim_{\tau\to 0}\frac{1}{\tau}[\delta(t+\tau/2)-\delta(t-\tau/2)]$
-  $$\begin{cases}
-    f(t)\delta'(t)=f(0)\delta'(t)-f'(0)\delta(t)\\
-    \int^{\infin}_{\infin} f(t)\delta'(t)=-f'(0)    
-  \end{cases}$$
+
+$$\begin{cases}
+  f(t)\delta'(t)=f(0)\delta'(t)-f'(0)\delta(t)\\
+  \int^{\infin}_{\infin} f(t)\delta'(t)=-f'(0)    
+\end{cases}$$
 
 - 单位符号信号
-  $$\text{sgn}(t)=U(t)-U(-t)=2U(t)-1$$
+
+$$\text{sgn}(t)=U(t)-U(-t)=2U(t)-1$$
 
 - 抽样信号
-  $$\text{Sa} (t)=\frac{\sin t}{t}$$
-  $$\int^{\infin}_0 \text{Sa}(x)dx=\frac{\pi}{2}$$
+
+$$\text{Sa} (t)=\frac{\sin t}{t}$$
+
+$$\int^{\infin}_0 \text{Sa}(x)dx=\frac{\pi}{2}$$
+
   **proof** let $I(a)=\int^{\infin}_0 \frac{\sin x}{x}e^{-ax}dx$, then $I'(a)=\int^{\infin}_0 - \sin x e^{-ax} dx = -\Im \int^{\infin}_0 e^{-ax+ix} dx = -\Im \frac{1}{-a+i}=\frac{1}{a^2+1}$, thus $I(a)=\arctan(a)+c, \because I(\infin)=0,\therefore I(0)=\frac{\pi}{2}$
 
 时域变换: 折叠, 时移, 展缩, 倒向
 
 时域运算: 相加, 相乘, 数乘, 微分, 积分
 
-系统的分类: 动/静态系统, (非)线性系统, 时不变系统 (能与$\ast \delta(t-t_0)$交换), (非)因果系统(能与$\cdot U(t-t_0)$交换), 连续/离散时间系统
+系统的分类: 动/静态系统, (非)线性系统, 时不变系统 (能与 $\ast \delta(t-t_0)$ 交换), (非)因果系统(能与 $\cdot U(t-t_0)$ 交换), 连续/离散时间系统
 
 线性时不变系统的性质: 线性, 时不变性
 
-# Chapter 2 
-**时域分析**
+# 2 时域分析 
 
-**经典时域分析法**
+## 2.1 经典时域分析法
 
 特解的形式:
+
 $$\sum_{k=0}^L E_kt^ke^{at}\quad a=\lambda_{i_1}...\lambda_{i_r} \quad \to \quad \sum_{k=0}^{L+r}B_kt^ke^{at}$$
 
-**零输入响应算子求解法**
+## 2.2 零输入响应算子求解法
 
 算子表示
+
 $$D(p)y(t)=N(p)f(t)\quad 记H(p)=\frac{N(p)}{D(p)}$$
 
 **响应的线性特性**
@@ -53,17 +60,19 @@ $$D(p)y(t)=N(p)f(t)\quad 记H(p)=\frac{N(p)}{D(p)}$$
 - 零状态响应线性
 - 零输入响应线性
 
-**零状态响应卷积积分法**
+## 2.3 零状态响应卷积积分法
 $$\delta(t)\to h(t)$$
 
-利用$H(p)$求冲击响应
+利用 $H(p)$ 求冲击响应
+
 $$\begin{matrix}
     h(t)&=&H(p)\delta(t)\\
 &=& \sum_i \frac{K_i}{(p-p_i)^{r_i}}\delta(t) + \sum_i B_i p^i
 \end{matrix}$$
+
 $$\frac{K}{(p-p_i)^{r_i}}\quad \to \quad \frac{K}{(r-1)!}t^{r-1}e^{p_i t}U(t)$$
 
-*常见的$H(p)$*
+*常见的 $H(p)$*
 
 卷积的上下限, 性质: 交换律, 分配律, 结合律, 与积分/微分可交换
 
@@ -75,12 +84,11 @@ $$y(t)=f(t)\ast h(t)\quad (只在线性非时变系统)$$
 
 卷积积分的数值计算
 
-# Chapter 3
-**连续信号频域分析**
+# 3 信号频域分析
 
-**线性时不变(LTI)系统的特征函数**
+## 3.1 线性时不变(LTI)系统的特征函数
 
-依$y(t)=\int^{\infin}_{-\infin} h(\tau) f(t-\tau) \text{d} \tau \sim f(t)$, 满足$f(t-\tau)=f(t)K(\tau)\quad(\forall t,\tau)$, $\frac{f(t-\tau)}{f(t)}=\text{const}, \therefore f(t)=ke^{\eta t}$。说明系统特征函数为所有复指数
+依 $y(t)=\int^{\infin}_{-\infin} h(\tau) f(t-\tau) \text{d} \tau \sim f(t)$, 满足 $f(t-\tau)=f(t)K(\tau)\quad(\forall t,\tau)$, $\frac{f(t-\tau)}{f(t)}=\text{const}, \therefore f(t)=ke^{\eta t}$。说明系统特征函数为所有复指数
 
 **完备正交函数集**
 正交, 归一化, 正交复变函数集, 完备
@@ -93,13 +101,18 @@ $$\{\cos n \Omega,, \sin m \Omega\}\\
 \{e^{-in\Omega t}\}\\
 \{\text{Sa}(\frac{\pi}{T}(t-nT))\}$$
 - **proof**
-  对$\int^{\infin}_{-\infin} \text{Sa}(x-\pi n)\text{Sa}(x-\pi m)$构造围道
+  对 $\int^{\infin}_{-\infin} \text{Sa}(x-\pi n)\text{Sa}(x-\pi m)$ 构造围道
+
   $$\int_{C_\infin^-}...=0(\text{Jordan}),\quad \int_{\delta_m},\quad \int_{\delta_n},\quad ...$$
+
   根据小圆弧定理, 仅当奇点重合时原积分不为零
+
+- **proof2**
+  Fourier频谱为时移的门信号, 积为零
 
 $$\{w(k,t)\}\\ \{P_n(t)\}$$
 
-**周期信号的傅里叶级数表示**
+## 3.2 周期信号的傅里叶级数表示
 
 $$\begin{cases}
   a_n&=&\frac{2}{T}\int^{T/2}_{T/2}f(t)\cos(n\omega_0 t)\text{d}t\\
@@ -117,6 +130,7 @@ $$F_n=\frac{1}{T}\int^{T/2}_{T/2}f(t)e^{-j\omega_0 t}\text{d}t=\begin{cases}
 傅里叶级数与对称性的关系
 
 性质:
+
 $$\begin{matrix}
   f(t-t_0)  &=&\sum F_n e^{jn\omega_0(t-t_0)}\\
   f^{(k)}(t)&=&\sum (jn\omega_0)^kF_ne^{jn\omega_0}\\
@@ -126,17 +140,19 @@ $$\begin{matrix}
 
 周期信号频谱的特点: 离散性, 谐波性, 收敛性
 
-对周期矩形信号频谱$F_n=\frac{E\tau}{T}\text{Sa}\left(\frac{n\omega_0 t}{2}\right)$的分析: 有效频谱宽度$B_\omega =\frac{2\pi}{\tau}$
+对周期矩形信号频谱 $F_n=\frac{E\tau}{T}\text{Sa}\left(\frac{n\omega_0 t}{2}\right)$ 的分析: 有效频谱宽度 $B_\omega =\frac{2\pi}{\tau}$
 
 功率谱
 
-**非周期信号频谱**
+## 3.3 非周期信号频谱
 
 傅里叶变换
+
 $$\mathscr{F}(f)=\int^{\infin}_{-\infin}f(t)e^{-j\omega t}\text{d}t\\
 \mathscr{F}^{-1}(f)= \frac{1}{2\pi} \int^{\infin}_{-\infin}f(t)e^{j\omega t}\text{d}\omega$$
 
 典型信号的频谱函数
+
 $$\begin{matrix}
   e^{-\alpha t}U(t) \to \frac{1}{\alpha+j\omega}\\
   e^{-\alpha |t|} \to \frac{2\alpha}{\alpha^2+\omega^2}\\
@@ -150,6 +166,7 @@ $$\begin{matrix}
 \end{matrix}$$
 
 性质
+
 $$\begin{matrix}
   F(t) \to 2\pi f(-\omega)\\
   f(-t) \to F(-\omega)\\
@@ -166,23 +183,47 @@ $$\begin{matrix}
 \end{matrix}$$
 
 
-**周期信号的傅里叶变换**
+## 3.4周期信号的傅里叶变换
+
 $$F(\omega)=2\pi\sum F_n\delta(\omega-n\omega_0)$$
 
 **功率谱与能量谱**
 
-# Chapter 4
-**系统频域分析**
+# 4 系统频域分析
 
-频域系统函数$H(\omega)=\mathscr{F}(h)$
+频域系统函数 $H(\omega)=\mathscr{F}(h)$
 
 对周期信号的响应:
+
 $$\begin{matrix}
   f(t)=\cos(\omega t) \to y(t)=|H(\omega)|\cos(\omega t+\varphi)\\
   f(t) \to F_0+2\sum|F_n||H(n\omega)|\cos(n\omega t+\theta+\varphi)
 \end{matrix}$$
 
 对非周期信号的响应:
+
 $$Y(\omega)=H(\omega)F(\omega)$$
 
 **频域系统函数的求法**
+
+# 5 复频域分析
+
+## 5.1 拉普拉斯变换
+见[复分析](../complex_analysis/thereoms.md)
+## 5.2 电路的复频域形式
+## 5.3 系统的复频域分析法
+## 5.4 拉普拉斯变换和傅里叶变换的关系
+1. $\sigma<0$
+
+$$F(j\omega)=F(s)|_{s=j\omega}$$
+
+2. $\sigma=0$
+
+此时可能有极点。
+记 $F(s)=F_N(s)+\sum \frac{K_i}{s-j\beta_i}$ , 其中 $F_N(s)$ 无极点
+
+$$F(j\omega)=F_N(s)|_{s=j\omega}+\sum K_i\left(\pi\delta(\omega-\beta_i)\right)$$
+
+3. $\sigma>0$
+
+$F(j\omega)$ 可能不存在 

@@ -68,6 +68,10 @@ $$\begin{cases}
 
 有源负载的共射放大器:
 
+共射放大器**最大电压增益**:
+
+$$A_{vt}=-\frac{|V_A|}{2V_T}$$
+
 
 ### 4.2.3 集成MOS放大器
 
@@ -95,7 +99,7 @@ $$A_v=-\frac{g_{m1}}{\eta_2 g_{m2}}$$
 
 ### 4.3.2 性能特点
 
-共模信号(common-mode)和差模(differential-mode)信号:$1,2=c\pm\frac{d}{2}$
+共模信号(common-mode)和差模(differential-mode)信号: $1,2=c\pm\frac{d}{2}$
 
 1. c等效电路(共射放大器)
 2. d等效电路(接$2R_{EE}$的共射放大器)
@@ -116,6 +120,8 @@ $$K_{\text{CMR}}=\left|\frac{A_{vd}}{2A_{vc}}\right|=\left|\frac{A_{vd1}}{A_{vc1
 
 $$K_{\text{CMR}}=g_mR_{EE}$$
 
+**正负性的判别**
+
 ### 4.3.3 电路不对称的影响
 
 
@@ -134,7 +140,7 @@ $$K_{CMR}=|A_{vd\to d}/A_{vc\to d}|$$
         $$V_{\text{IO}}=V_O/A_{vd}$$
 
         若 $g_m=T_{EE}/(2V_T)$,则
-        $$V_{\text{IO}}=V_T(\delta I_S/I_S+\Delta R_C/R_C)$$
+        $$V_{\text{IO}}=V_T(\Delta I_S/I_S+\Delta R_C/R_C)$$
 
     - 输入失调电流
         $$I_{\text{IO}}=|I_{BQ1}-I_{BQ2}|=I_B\Delta \beta/\beta$$
@@ -163,7 +169,7 @@ $$\begin{cases}
     I_0=\frac{I_R}{1+\frac{2}{\beta}}
 \end{cases}$$
 
-2. 减小$\beta$影响的
+2. 减小 $\beta$影响的
 3. 比例式
 #### 4.4.1.2 MOS
 1. 基本镜像电流源
@@ -191,9 +197,9 @@ $$\text{where}\quad A(s)=\frac{A_0}{\prod (s+j\omega_{p_i})},\quad A(j\omega_H)=
 $$\omega_H=\frac{1}{\sqrt{\sum \frac{1}{\omega_{p_i}^2}}} \approx \omega_{p_1}\quad(\omega_{p_1}\le 0.25\omega_{\min 2} 则称为主极点)$$
 
 
-**DEF** 截止角频率 $\omega_\beta$,$\omega_\alpha$,特征角频率 $\omega_T$ (T: trait),
-分别对应 $\beta\to\beta/\sqrt{2}$,$\alpha\to\alpha/\sqrt{2}$,$\beta\to 1$, 
-通常 $\omega_\alpha>\omega_T\gg\omega\beta$
+**DEF** 截止角频率 $\omega_\beta$, $\omega_\alpha$, 特征角频率 $\omega_T$ (T: trait),
+分别对应 $\beta\to\beta/\sqrt{2}$, $\alpha\to\alpha/\sqrt{2}$,$\beta\to 1$, 
+通常 $\omega_\alpha>\omega_T\gg\omega_\beta$
 
 ### 4.7.2 CE,CB,CC频率特性
 **METHOD** miller's equivalence:
@@ -203,7 +209,7 @@ $$\begin{cases}
     Y_2(s)=Y(s)\left(1-\frac{1}{A(s)}\right)
 \end{cases}$$
 
-#### 共源放大器
+#### 共射放大器
 
 高频等效
 
@@ -220,7 +226,7 @@ $$\begin{cases}
 
 $$\begin{cases}
     R_t&=(R_s'+r_{bb'})\parallel r_{b'e}\\
-    C_t&=C_{b'e}+C_{M1}=\left(1+\frac{g_mR_L'C_{b'c}}{C_{b'e}}\right)\\
+    C_t&=C_{b'e}+C_{M1}=\left(1+\frac{g_mR_L'C_{b'c}}{C_{b'e}}\right)C_{b'e}\\
     &\to DC_{b'e}\quad(D为miller倍增因子)
 \end{cases}$$
 
@@ -230,7 +236,11 @@ $$\begin{cases}
     \omega_\alpha=(\beta+1)\omega_\beta
 \end{cases}$$
 
-#### 共发放大器
+$$A_{vs}=\frac{A_{vsI}}{1+s/\omega_H}=\frac{A_{vsI}}{1+sR_tC_t}$$
+$$\quad \text{where}\quad A_{vsI}=-\frac{\beta R_L'}{R_s+r_{bb'}+r_{b'e}}$$
 
+增益带宽积:
+
+$$\text{GBW}=|A_{vsI}f_H|=\frac{\omega_T}{2\pi D}\cdot \frac{R_L'}{R_s+r_{bb'}}$$
 
 ## 4.8 放大器噪声 \*
