@@ -45,6 +45,8 @@ chinese headings:
     - number: counter display
     - ...
 
+[see also](https://texdoc.org/serve/ctex.pdf/0)
+
 [see also](https://zhuanlan.zhihu.com/p/464244924)
 
 [see also](https://blog.csdn.net/qq_44643644/article/details/107358084)
