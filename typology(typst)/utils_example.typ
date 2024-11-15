@@ -1,3 +1,18 @@
+// common typst utils
+// 
+// usage: 
+// 
+//   #import "/path/to/this/file/utils.h":*
+// 
+//   #set text(..default_text_parm)
+//   #set par(..default_par_parm)
+//   
+//   #set image(height: 5cm, width: 6.67cm)
+//   #show figure.where(kind: image):set figure(..default_FOI_parm)
+//   #show figure.where(kind: table):set figure(..default_FOT_parm)
+//   #show figure.caption:set text(size:font_size_zh.WuHao)
+
+
 #let font_size_zh = (
   ChuHao: 42pt,
   XiaoChu: 36pt,
@@ -31,6 +46,16 @@
   Monospaced: ("Courier New","SimHei"),
 )
 
+
+//counters
+//#let TheImage=counter("the_image")
+//#let TheTable=counter("the_figure")
+#let TheSection=counter("the_section")
+#let TheSubSection=counter("the_sub_section")
+#let TheSubSub=counter("the_sub_sub_section")
+
+
+// default text and parargraph parameters
 #let default_edge=(
   top-edge:"baseline",
   bottom-edge:"baseline",
@@ -62,21 +87,41 @@
   font:font_zh.HeiTi,
   size:font_size_zh.XiaoSi
 )+default_edge
-#let default_spar_parm=(
-  first-line-indent:0pt,
-  leading:20pt,
-  spacing:20pt
-)
+
 
 // outline numbering
 #show heading.where(level: 1):set heading(numbering: "一")
 #show heading.where(level: 2):set heading(numbering: "1.1")
 
+
+// figure numbering
+#let figure_inf=(0,)
+
+#let default_figure_parm=(
+  gap:10pt,//from caption to image/table
+  supplement:""
+)
+//#show figure.caption: it => [
+//  #underline(it.body) |
+//  #it.supplement
+//  #context it.counter.display(it.numbering)
+//]
+
+#let default_FOI_parm=(//figure of image
+  numbering:it=>{
+    //TheImage.step()
+    [图 #TheSection.display("1")-#counter(figure.where(kind:image)).display("1")]
+  },
+)+default_figure_parm
+#let default_FOT_parm=(//figure of table
+  numbering:it=>{
+    //TheTable.step()
+    [表 #TheSection.display("1")-#counter(figure.where(kind:table)).display("1")]
+  }
+)+default_figure_parm
+
+
 // latex like section, subsection, subsub
-//counters
-#let TheSection=counter("the_section")
-#let TheSubSection=counter("the_sub_section")
-#let TheSubSub=counter("the_sub_sub_section")
 
 //section
 #let Section(body,inc:true,sdisp:"一、",al:center)={
@@ -93,6 +138,9 @@
     TheSection.step()
     TheSubSection.update(0)
     TheSubSub.update(0)
+    counter(figure.where(kind:image)).update(0)
+    //TheImage.update(0)
+    //TheTable.update(0)
     if(sdisp!=none){
       context TheSection.display(sdisp)
     }
@@ -102,7 +150,7 @@
 
   parbreak()
 }
-
+//subsection
 #let SubSection(body,inc:true,sdisp:"1.",s2disp:"1 ")={
 
   set text(..default_s2text_parm)
@@ -125,8 +173,13 @@
   parbreak()
   //v(-3pt)
 }
-
-#let SubSub(body,inc:true)={
+//subsubsection
+#let SubSub(
+  body,
+  inc:true,
+  sdisp:"1.",
+  s2disp:"1.",
+  s3disp:"1 ")={
 
   set text(..default_s3text_parm)
 
@@ -136,9 +189,15 @@
 
   if inc{
     TheSubSub.step()
-    context TheSection.display("1.")
-    context TheSubSection.display("1.")
-    context TheSubSub.display("1 ")
+    if (sdisp!=none){
+      context TheSection.display(sdisp)
+    }
+    if (s2disp!=none) {
+      context TheSubSection.display(s2disp)
+    }
+    if (s3disp!=none) {
+      context TheSubSub.display(s3disp)
+    }
   }
   context body
   parbreak()
@@ -181,3 +240,31 @@
   box(raw(body), fill: luma(235), outset: 3pt)
   [ ]
 }
+
+
+// additional tips setting in the main page
+// 
+//  //set equation props
+//  #set math.equation(numbering: "(1)", supplement: "")
+// 
+//  #show figure.caption: set text(font:font_zh.SongTi, size: font_size_zh.WuHao)
+//  #show figure.where(kind:image): set figure(supplement: "图") //deprecated
+//  #show figure.where(kind:table): set figure(supplement: "表") //deprecated
+// 
+//  //position of caption
+//  #show figure.where(kind: table): set figure.caption(position:top)
+// 
+//  #set pagebreak(weak: true)
+//
+//  //page style
+//  #set page(
+//    footer: [
+//      #set align(center)
+//      #context counter(page).display("1")
+//    ]
+//  )
+//
+//  //bib upercase style; disable auto-generated footnote
+//  #set footnote(numbering: "[1]")
+//  #set footnote.entry(separator: none)
+//  #show footnote.entry: hide
