@@ -12,7 +12,11 @@
 //   #show figure.where(kind: table):set figure(..default_FOT_parm)
 //   #show figure.caption:set text(size:font_size_zh.WuHao)
 
+// for "1-1" naming issue, see github.com/typst issues 606 and 1896(adopted one)
 
+// headings wrapped into latex-like section for better spacing
+
+//font adopted from zhihu
 #let font_size_zh = (
   ChuHao: 42pt,
   XiaoChu: 36pt,
@@ -56,7 +60,7 @@
 
 
 // default text and parargraph parameters
-#let default_edge=(
+#let default_edge=(//adhere to the definition of \lineskip
   top-edge:"baseline",
   bottom-edge:"baseline",
 )
@@ -87,11 +91,6 @@
   font:font_zh.HeiTi,
   size:font_size_zh.XiaoSi
 )+default_edge
-
-
-// outline numbering
-#show heading.where(level: 1):set heading(numbering: "一")
-#show heading.where(level: 2):set heading(numbering: "1.1")
 
 
 // figure numbering
@@ -264,7 +263,11 @@
 //    ]
 //  )
 //
-//  //bib upercase style; disable auto-generated footnote
+//  // bib upercase style; disable auto-generated footnote
 //  #set footnote(numbering: "[1]")
 //  #set footnote.entry(separator: none)
 //  #show footnote.entry: hide
+// 
+//  // outline numbering
+//  #show heading.where(level: 1):set heading(numbering: "一")
+//  #show heading.where(level: 2):set heading(numbering: "1.1")
