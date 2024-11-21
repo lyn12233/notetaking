@@ -14,15 +14,15 @@
 
 电极: Source(源极), Gate(栅极), Drain(漏极)
 
-1. 截止区:
+1. **截止区**:
    
     $v_{GS}\le V_{GS(th)}$
     在 $V_{GS(th)}$ 附近为亚阈区
-2. 非饱和区:
+2. **非饱和区**:
    
     $$v_{GS}>V_{GS(th)},\quad 0<v_{DS}<v_{GS}-v_{GS(th)}$$
 
-3. 饱和区:
+3. **饱和区**:
 
     $$v_{GS}>V_{GS(th)},\quad v_{DS}>v_{GS}-v_{GS(th)}$$
 
@@ -30,8 +30,9 @@
 ### 3.1.3 EMOS特性
 
 伏安特性:
-    - 输出特性$v_{DS}\to i_D$
-    - 转移特性$v_{GS}\to i_D$
+
+  - 输出特性 $v_{DS}\to i_D$
+  - 转移特性 $v_{GS}\to i_D$
 
 稳压二极管保护:
 
@@ -48,10 +49,10 @@ $$\eta=\frac{g_{mb}}{g_m},\quad(i_D=g_mv_{gs}+g_{mb}v_{bs}+g_{ds}v_{ds})$$
 
 $$i_D=\frac{\mu_nC_{OX}W}{l}\left((v_{GS}-V_{GS(th)})v_{DS}-\frac{1}{2}v_{DS}^2\right)\\
 =\begin{cases}
-    \frac{\mu_nC_{OX}W}{l}(v_{GS}-V_{GS(th)})v_{DS} & v_{DS}\ll ...\\
+    \frac{\mu_nC_{OX}W}{l}(v_{GS}-V_{GS(th)})v_{DS} & v_{DS}\ll ..., 亚阈区\\
     \frac{\mu_nC_{OX}W}{2l} (v_{GS}-V_{GS(th)})^2 & 饱和区
 \end{cases}$$
-*注* : $i_D$达到饱和区不再增加
+*注* : $i_D$ 达到饱和区几乎不再增加
 
 饱和区沟道调制
 $$i_D=...\left(1-\frac{v_{DS}}{V_A}\right)=...(1+\lambda v_{DS})$$
@@ -73,7 +74,7 @@ $\mu=g_mr_{ds}=v_{ds}/v_{gs}$
 
 寄生电容:
 
-### 3.1.6 EKV MOS模型
+### 3.1.6 EKV MOS模型\*
 用于解决亚阈区特性
 
 反型系数:

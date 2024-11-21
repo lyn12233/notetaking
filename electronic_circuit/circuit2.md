@@ -54,7 +54,7 @@ $$I_E=(1+\overline{\beta})I_B+I_{CEO}$$
 
 ## 2.2 三极管模型
 
-### 2.2.1 Ebers-Moll模型
+### 2.2.1 Ebers-Moll模型\*
 
 通过发射结、集电结的电流:
 
@@ -86,7 +86,7 @@ $$\begin{pmatrix}
    
    $I_B\approx \frac{I_S}{\beta}e^{V_{BE}/V_T}$ 只受发射结控制
 
-温度的影响:
+**温度的影响**:
 
 $$\begin{cases}
  \Delta \beta / \beta = 0.005\sim 0.01 \frac{\Delta T}{1K}\\
@@ -123,7 +123,7 @@ $$g_m=\frac{\beta}{r_{be}}\approx \frac{I_{CQ}}{V_T}\approx 38.5V^{-1} I_{CQ}$$
 
 ### 2.2.3 伏安特性
 
-1. 放大区
+1. **放大区**
    
    **厄尔利电压**(early voltage)和基区宽度调制(base-width modulation)
 
@@ -132,16 +132,17 @@ $$g_m=\frac{\beta}{r_{be}}\approx \frac{I_{CQ}}{V_T}\approx 38.5V^{-1} I_{CQ}$$
 
    $\beta$ 与 $i_C$ 的关系
 
-2. 截止区
+2. **截止区**
 
   $i_E=0$, 可以视作 $i_C=I_{CBO}\approx 0$
 
-3. 饱和区/反向工作区
+3. **饱和区**/反向工作区
   
 $$v_{CE}<0.3V$$
 
-1. 击穿区
-2. 极限参数
+4. **击穿区**
+
+极限参数: 
 
 $$V_{(BR)CEO},I_{CM},P_{CM}$$
 

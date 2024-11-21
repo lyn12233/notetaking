@@ -14,18 +14,23 @@ N型: 施主杂质(donor); P型: 受主杂质(acceptor)
 
 $$n_0p_0=n_i^2$$
 
+**少数载流子受温度影响较大**
+
 $$\begin{cases}
     n_0=N_d+p_0 & \text{N, donor}\\
     p_0=N_a+n_0 & \text{P, acceptor}\\
 \end{cases}$$
 
-导电原理:
+**导电原理**:
+
   - 漂移: 受电场作用的定向移动 $J_t=1e\cdot(pmu_p+nmu_n)E$
   - 扩散: 浓度差引起的定向移动 $J_{nd}=qD_n\partial_xn,...$
 
-热电压: $V_T=\frac{kT}{q}=26\text{mV}$
+**热电压**: $V_T=\frac{kT}{q}=26\text{mV}$
 
-内建电位差: $V_B\approx V_T \ln \frac{N_aN_d}{n_i^2}$
+**空间电荷区**
+
+**内建电位差**: $V_B\approx V_T \ln \frac{N_aN_d}{n_i^2}$
 
 阻挡层宽度(突变结) $\frac{x_n}{x_p}=\frac{N_a}{N_d}$
 
@@ -40,6 +45,7 @@ $$I=I_S(e^{\frac{V}{V_T}}-1)$$
 温度特性
 
 电容特性
+
   - 势垒电容 $C_T=\frac{C_T(0)}{(1-V/V_B)^n}$
   - 扩散电容 $C_D=k_D(I-I_S)$
 
@@ -47,7 +53,9 @@ $$I=I_S(e^{\frac{V}{V_T}}-1)$$
 
 ## 1.3 二极管分析方法
 数学模型
-$$I=I_S(e^{\frac{V-Ir_S}{nV_T}}-1)$$
+
+$$I=I_S(e^{\frac{V-Ir_S}{nV_T}}-1)\approx I_S (e^{\frac{V}{V_T}}-1)$$
+
 其中 $I_S$ 为反向饱和电流
 
 大信号模型(理想二极管+导通电压+电阻)

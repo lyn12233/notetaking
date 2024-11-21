@@ -26,6 +26,8 @@ $$A(\omega)_{\text{dB}}=20\lg \frac{A(\omega)}{1 \text{rad}\cdot s^{-1}}$$
 
 $$\text{BW}=f_H-f_L$$
 
+$f_H$:上限频率
+
 **失真** : 频率失真, 瞬变失真, 非线性失真
 
 ## 4.2 基本放大器
@@ -53,24 +55,24 @@ nomenclature
 
 | |共射(CE)|共基(CB)|共集(CC)|
 |-|-|-|-|
-|$R_i$|$R_B\parallel r_{b'e}$|$R_E\parallel \frac{r_{b'e}}{1+\beta}$|$R_B\parallel [r_{b'e}+(1+\beta)R_L']$|
-|$R_o$|$R_C\parallel r_{ce}$|$R_C\parallel[r_{ce}+\beta \frac{R_s'r_{ce}}{R_s'+r_{be}}]$|$R_E\parallel \frac{r_{b'e}+R_s'}{1+\beta}$|
+|$R_i$|$R_B\parallel (r_{b'e}+r_{bb'})$|$R_E\parallel \frac{r_{b'e}+r_{bb'}}{1+\beta}$|$R_B\parallel [r_{bb'}+r_{b'e}+(1+\beta)R_L']$|
+|$R_o$|$R_C\parallel r_{ce}$|$R_C\parallel r_{ce}[1+\frac{\beta R_s'}{R_s'+r_{bb'}+r_{b'e}}]$|$R_E\parallel \frac{r_{bb'}+r_{b'e}+R_s'}{1+\beta}$|
 |$A_{in}$|$\beta$|$-\alpha$|$-(1+\beta)$|
-|$A_v$|$-g_mR_L'$|$g_mR_L'$|$(1+\frac{r_{b'e}}{(1+\beta)R_L'})^{-1}$|
+|$A_v$|$-\frac{\beta R_L'}{r_{bb'}+r_{b'e}}$|$\frac{\beta R_L'}{r_{bb'}+r_{b'e}}$|$\frac{(1+\beta)R_L'}{r_{bb'}+r_{b'e}+(1+\beta) R_L'}$|
 
 带 $R_E$ 的共射放大器:
 
 $$\begin{cases}
     R_i &=& R_B\parallel \left(r_{b'e}+R_E\frac{(1+\beta) r_{ce}+R_L'}{r_{ce}+R_L'+R_E}\right) \\
-    R_o &=& R_C\parallel\left(r_{ce}(1+\frac{\beta R_E}{R_E+r_{b'e}+R_s'})\right)\\
-    A_v &=& - \frac{\beta R_L'}{r_{b'e}+(1+\beta)R_E}\\
+    R_o &=& R_C\parallel \left(r_{ce}(1+ \frac{\beta R_E}{R_E + r_{b'e} + R_s'})\right)\\
+    A_v &=& - \frac{\beta R_L'}{ r_{bb'} + r_{b'e} + (1+\beta) R_E}\\
 \end{cases}$$
 
 有源负载的共射放大器:
 
 共射放大器**最大电压增益**:
 
-$$A_{vt}=-\frac{|V_A|}{2V_T}$$
+$$A_{vt}=-\frac{|V_A|}{V_T}$$
 
 
 ### 4.2.3 集成MOS放大器
@@ -122,7 +124,7 @@ $$K_{\text{CMR}}=g_mR_{EE}$$
 
 **正负性的判别**
 
-### 4.3.3 电路不对称的影响
+### 4.3.3 电路不对称的影响\*
 
 
 1. 双端输出共模抑制比
@@ -190,14 +192,16 @@ $$\begin{cases}
 $$A|_{dB}=20\lg A$$
 根据传输算子绘制**渐进波特图**(多级点系统波特图为单极点线性叠加)
 
-上限角频率
+**上限角频率** (对放大器而言)
 
 $$\text{where}\quad A(s)=\frac{A_0}{\prod (s+j\omega_{p_i})},\quad A(j\omega_H)=\frac{A_0}{\sqrt{2}}$$
 
 $$\omega_H=\frac{1}{\sqrt{\sum \frac{1}{\omega_{p_i}^2}}} \approx \omega_{p_1}\quad(\omega_{p_1}\le 0.25\omega_{\min 2} 则称为主极点)$$
 
+**对N重主极点**: $\omega_H \approx \omega_p \sqrt{\sqrt[n]{2}-1}$
 
-**DEF** 截止角频率 $\omega_\beta$, $\omega_\alpha$, 特征角频率 $\omega_T$ (T: trait),
+
+**DEF** (对三极管而言) 截止角频率 $\omega_\beta$, $\omega_\alpha$, 特征角频率 $\omega_T$ (T: trait),
 分别对应 $\beta\to\beta/\sqrt{2}$, $\alpha\to\alpha/\sqrt{2}$,$\beta\to 1$, 
 通常 $\omega_\alpha>\omega_T\gg\omega_\beta$
 
