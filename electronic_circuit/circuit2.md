@@ -148,7 +148,7 @@ $$V_{(BR)CEO},I_{CM},P_{CM}$$
 
 ### 2.2.4 频率参数
 
-$$\beta(\omega)=\frac{\beta_0}{1=j\frac{\omega}{\omega_{\beta}}}$$
+$$\beta(\omega)=\frac{\beta_0}{1+j\frac{\omega}{\omega_{\beta}}}$$
 
 其中 $\omega_{\beta}=\frac{1}{r_{b'e}(C_{b'c}+C_{b'e})}$ 为转折点角频率
 
@@ -156,6 +156,9 @@ $\omega_T=\beta_0\omega_{\beta}$
 为特征角频率, 此时失去放大能力
 
 $\alpha$ 的转折点角频率 $\omega_{\alpha}=(1+\beta)\omega_{\beta}$
+
+关系为
+$$\omega_\beta \ll \omega_T \lt \omega_\alpha$$
 
 ## 2.3 三极管分析方法
 ## 2.4 应用
