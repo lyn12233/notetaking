@@ -6,12 +6,17 @@
 // 
 //   #set text(..default_text_parm)
 //   #set par(..default_par_parm)
+//   #set pagebreak(weak:true)
 //   
 //   #set image(height: 5cm, width: 6.67cm)
 //   #show figure.where(kind: image):set figure(..default_FOI_parm)
 //   #show figure.where(kind: table):set figure(..default_FOT_parm)
 //   #show figure.caption:set text(size:font_size_zh.WuHao)
-
+//   #show figure.where(kind: table): set figure.caption(position:top)
+//   
+//   #show heading.where(level: 1):set heading(numbering: "1")
+//   #show heading.where(level: 2):set heading(numbering: "1.1")
+// 
 // for "1-1" naming issue, see github.com/typst issues 606 and 1896(adopted one)
 
 // headings wrapped into latex-like section for better spacing
@@ -72,6 +77,7 @@
   first-line-indent:0pt,
   leading:20pt,//lineskip
   spacing:20pt,//parskip
+  justify:true
 )
 #let default_list_parm=(
   first-line-indent:0pt,
@@ -236,7 +242,11 @@
 
 #let b(body)={
   [ ]
-  box(raw(body), fill: luma(235), outset: 3pt)
+  [
+    #set text(top-edge: "bounds",
+    bottom-edge: "bounds")
+    #box(raw(body), fill: luma(235), outset: 3pt)
+  ]
   [ ]
 }
 
@@ -246,14 +256,8 @@
 //  //set equation props
 //  #set math.equation(numbering: "(1)", supplement: "")
 // 
-//  #show figure.caption: set text(font:font_zh.SongTi, size: font_size_zh.WuHao)
 //  #show figure.where(kind:image): set figure(supplement: "图") //deprecated
 //  #show figure.where(kind:table): set figure(supplement: "表") //deprecated
-// 
-//  //position of caption
-//  #show figure.where(kind: table): set figure.caption(position:top)
-// 
-//  #set pagebreak(weak: true)
 //
 //  //page style
 //  #set page(
