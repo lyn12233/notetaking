@@ -1,5 +1,5 @@
 箭头的含义：
-- 对元件：箭头通常接Emitter/Source/Base(MOS), 指向P型
+- 对元件：箭头通常接Emitter/Source/Base(MOS), 指向N型
 
 s: 源，饱和值
 

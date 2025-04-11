@@ -6,9 +6,12 @@
 // 
 //   #set text(..default_text_parm)
 //   #set par(..default_par_parm)
+//   #set table(stroke:none)
 //   #set pagebreak(weak:true)
 //   
 //   #set image(height: 5cm, width: 6.67cm)
+//   #set grid(columns: 2, gutter: 10pt)
+// 
 //   #show figure.where(kind: image):set figure(..default_FOI_parm)
 //   #show figure.where(kind: table):set figure(..default_FOT_parm)
 //   #show figure.caption:set text(size:font_size_zh.WuHao)
@@ -16,6 +19,8 @@
 //   
 //   #show heading.where(level: 1):set heading(numbering: "1")
 //   #show heading.where(level: 2):set heading(numbering: "1.1")
+// 
+//   #show math.equation:set text(font: ("New Computer Modern Math","Songti SC"))
 // 
 // for "1-1" naming issue, see github.com/typst issues 606 and 1896(adopted one)
 
@@ -52,7 +57,7 @@
   // 仿宋
   FangSong: ("Times New Roman", "FangSong", "FangSong SC", "STFangSong", "FZFangSong-Z02S", "Noto Serif CJK SC"),
   // 等宽字体，用于代码块环境，一般可以等同于英文中的 Monospaced Font
-  Monospaced: ("Courier New","SimHei"),
+  Monospaced: ("Consolas","Courier New","Songti SC","SimHei"),
 )
 
 
@@ -74,13 +79,13 @@
   size:font_size_zh.XiaoSi,
 )+default_edge
 #let default_par_parm=(
-  first-line-indent:0pt,
+  first-line-indent:20pt,
   leading:20pt,//lineskip
   spacing:20pt,//parskip
   justify:true
 )
 #let default_list_parm=(
-  first-line-indent:0pt,
+  first-line-indent:24pt,
   hanging-indent:6pt,
   leading:20pt,
   spacing:20pt
@@ -212,16 +217,17 @@
 
 // new paragraph for unresolved problems on chinese chars
 #let Paragraph(
-  body,
+  body,addiontal_indent:0pt,
   ..par_parm
   )={
+    // let addiontal_indent=0pt
     set text(..default_text_parm)
     if (par_parm.named().len()==0){
       set par(..default_par_parm)
-      [#h(24pt) #body]
+      [#h(addiontal_indent) #body]
     }else{
       set par(..par_parm)
-      [#h(24pt) #body]
+      [#h(addiontal_indent) #body]
     }
 }
 #let nlist(
