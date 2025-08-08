@@ -9,8 +9,9 @@
 //   #set table(stroke:none)
 //   #set pagebreak(weak:true)
 //   
-//   #set image(height: 5cm, width: 6.67cm)
-//   #set grid(columns: 2, gutter: 10pt)
+//   #set image(..default_image_parm)
+//   #set grid(..default_grid_parm)
+//   #show bibliography: set grid(..default_bib_grid_parm)
 // 
 //   #show figure.where(kind: image):set figure(..default_FOI_parm)
 //   #show figure.where(kind: table):set figure(..default_FOT_parm)
@@ -49,7 +50,7 @@
 
 #let font_zh = (
   // 宋体，属于「有衬线字体」，一般可以等同于英文中的 Serif Font
-  SongTi: ("Times New Roman","Songti SC"),
+  SongTi: ("Times New Roman","STSong"),
   // 黑体，属于「无衬线字体」，一般可以等同于英文中的 Sans Serif Font
   HeiTi: ("Arial", "SimHei"),
   // 楷体
@@ -256,6 +257,22 @@
   [ ]
 }
 
+#let default_image_parm = (
+  height: 5cm,
+  width: 20cm/3,
+)
+
+#let default_grid_parm = (
+  align: center,
+  columns: 2,
+  gutter: 10pt,
+)
+
+#let default_bib_grid_parm = (
+  align: left,
+  columns: auto,
+  gutter: auto,
+)
 
 // additional tips setting in the main page
 // 
