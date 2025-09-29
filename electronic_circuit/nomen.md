@@ -1,3 +1,4 @@
+**不要参考**
 箭头的含义：
 - 对元件：箭头通常接Emitter/Source/Base(MOS), 指向N型
 

@@ -1,3 +1,4 @@
+**不要参考**
 # 3 场效应管(field effect transistor)
 分类:
 - 结型(junction fet)

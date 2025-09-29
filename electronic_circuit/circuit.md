@@ -1,3 +1,4 @@
+**不要参考**
 # 1 二极管
 二极管: diode
 本征半导体: intrinsic semiconductor

@@ -1,3 +1,4 @@
+**不要参考**
 # 4 放大器
 
 ### 4.1.2 放大器性能指标
@@ -43,22 +44,22 @@ nomenclature
 ### 4.2.1 
 
 
-| |共源(CS)|共栅(CG)|共漏(CD)|
-|-|-|-|-|
-|$R_i$|$R_G\to \infin$|$R_S'\parallel g_m^{-1}$|$R_G\to\infin$|
-|$R_o$|$r_{ds}'=R_D\parallel r_{ds}\to R_D$|$R_D\parallel [r_{ds}+R_s+g_mR_s r_{ds}]\to R_D$|$R_s'\parallel g_m^{-1}$|
-|$R_o$|$r_{ds}\parallel R_D\to R_D$|$R_o'\parallel R_D\to R_D$|$g_m^{-1}$|
-|$A_v$|$-\frac{g_mR_L'}{1+g_mR_s'}\to -g_m R_L'$|$\to g_mR_L'$|$\left(1+\frac{1}{g_mR_L'}\right)^{-1}\to 1$|
+|       | 共源(CS)                                  | 共栅(CG)                                         | 共漏(CD)                                     |
+| ----- | ----------------------------------------- | ------------------------------------------------ | -------------------------------------------- |
+| $R_i$ | $R_G\to \infin$                           | $R_S'\parallel g_m^{-1}$                         | $R_G\to\infin$                               |
+| $R_o$ | $r_{ds}'=R_D\parallel r_{ds}\to R_D$      | $R_D\parallel [r_{ds}+R_s+g_mR_s r_{ds}]\to R_D$ | $R_s'\parallel g_m^{-1}$                     |
+| $R_o$ | $r_{ds}\parallel R_D\to R_D$              | $R_o'\parallel R_D\to R_D$                       | $g_m^{-1}$                                   |
+| $A_v$ | $-\frac{g_mR_L'}{1+g_mR_s'}\to -g_m R_L'$ | $\to g_mR_L'$                                    | $\left(1+\frac{1}{g_mR_L'}\right)^{-1}\to 1$ |
 
 
 ### 4.2.2
 
-| |共射(CE)|共基(CB)|共集(CC)|
-|-|-|-|-|
-|$R_i$|$R_B\parallel (r_{b'e}+r_{bb'})$|$R_E\parallel \frac{r_{b'e}+r_{bb'}}{1+\beta}$|$R_B\parallel [r_{bb'}+r_{b'e}+(1+\beta)R_L']$|
-|$R_o$|$R_C\parallel r_{ce}$|$R_C\parallel r_{ce}[1+\frac{\beta R_s'}{R_s'+r_{bb'}+r_{b'e}}]$|$R_E\parallel \frac{r_{bb'}+r_{b'e}+R_s'}{1+\beta}$|
-|$A_{in}$|$\beta$|$-\alpha$|$-(1+\beta)$|
-|$A_v$|$-\frac{\beta R_L'}{r_{bb'}+r_{b'e}}$|$\frac{\beta R_L'}{r_{bb'}+r_{b'e}}$|$\frac{(1+\beta)R_L'}{r_{bb'}+r_{b'e}+(1+\beta) R_L'}$|
+|          | 共射(CE)                              | 共基(CB)                                                         | 共集(CC)                                               |
+| -------- | ------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------ |
+| $R_i$    | $R_B\parallel (r_{b'e}+r_{bb'})$      | $R_E\parallel \frac{r_{b'e}+r_{bb'}}{1+\beta}$                   | $R_B\parallel [r_{bb'}+r_{b'e}+(1+\beta)R_L']$         |
+| $R_o$    | $R_C\parallel r_{ce}$                 | $R_C\parallel r_{ce}[1+\frac{\beta R_s'}{R_s'+r_{bb'}+r_{b'e}}]$ | $R_E\parallel \frac{r_{bb'}+r_{b'e}+R_s'}{1+\beta}$    |
+| $A_{in}$ | $\beta$                               | $-\alpha$                                                        | $-(1+\beta)$                                           |
+| $A_v$    | $-\frac{\beta R_L'}{r_{bb'}+r_{b'e}}$ | $\frac{\beta R_L'}{r_{bb'}+r_{b'e}}$                             | $\frac{(1+\beta)R_L'}{r_{bb'}+r_{b'e}+(1+\beta) R_L'}$ |
 
 带 $R_E$ 的共射放大器:
 

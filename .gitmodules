@@ -1,0 +1,3 @@
+[submodule "typst_utils"]
+	path = typst_utils
+	url = https://gitee.com/ltq12233/typst_utils.git
