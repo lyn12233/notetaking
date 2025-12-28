@@ -56,7 +56,7 @@ $
   X_e (e^(j omega)) & = 1/2 (X(e^(j omega)) + X^* (e^(-j omega))) \
   X_o (e^(j omega)) & = 1/2 (X (e^(j omega)) - X^* (e^(-j omega)))
 $
-满足 $"DTFT"[Re[x(n)]] = X_e (e^(j omega)), "DTFT"[j Im[ x(n)]] = X_o (e^(j omega))$
+满足 $"DTFT"[ "Re"[x(n)]] = X_e (e^(j omega)), "DTFT"[j thin"Im"[ x(n)]] = X_o (e^(j omega))$
 
 #SubSub("DTFT的物理性质和计算")
 
@@ -139,8 +139,88 @@ $ X(z) = sum_(k=0)^(N-1) X(k) Phi_k (z), quad (Phi_k (z)) = 1/N (1- z^N)/(1- W_N
 
 #FLI() 补零技术可以提升计算分辨率而不能提升物理分辨率, 起到平滑作用; DFT会带来的误差包括混叠误差, 栅栏效应, 截断效应等(略);
 
-#Section("")
-#Section("")
-#Section("")
+#Section("快速傅里叶变换(FFT)")
+
+#SubSection("DFT的运算特点")
+#SubSection("2-base FFT算法")
+#FLI() FFT是DFT的一种实现; 对 $N=2^M$ 点的FFT称为基-2FFT算法;
+
+#SubSub("按时间抽取的FFT(DIT-FFT)")
+#FLI() 若记 $x_1 (n) = x (2 n) , thin x_2 (n) = x (2 n + 1)$, 若 $N>=2$ 则
+$
+  X(k) & =sum_(n=0)^(N-1) x(n) W_N^(n k) \
+       & = sum_(r=0)^(N/2-1) x_1 (r) W_(N/2)^(r k) + W_N^(k) sum_(r=0)^(N/2-1) W_(N/2)^(r k) \
+       & = X_1 (k) + W_N^k X_2 (k) \
+       & = cases(
+           X_1 (k) + W_N^k X_2 (k) quad 0<=k<= N/2 - 1,
+           X_1 (r) - W_N^(r) X_2 (r) quad N/2<=k<=N-1, r=k-N/2
+         )
+$
+其中 $X_1 = "DFT" [x_1], X_2 = "DFT" [x_2]$; 可以用蝶形图表示为:
+
+迭代形式为(?):
+$
+  cases(
+    X_(...)^([M]) (0) = x_(...) (0),
+    X_(...)^([n]) (k) = X_(...1)^([n+1]) (k) + W_N^k X_(...2)^([n+1]) (k) quad 0<=k<=N/2-1,
+    X_(...)^([n]) (k) = X_(...1)^([n+1]) (k) - W_N^k X_(...2)^([n+1]) (k) quad "otherwise",
+    X (k) = X^([0]) (k)
+  )
+$
+#FLI()  FFT运算2个规律: 同址运算(in place, 即蝶形运算不需要额外的存储空间)和码位倒序($x(n)$ 到 $x_(...)(0)$ 为比特位倒序的过程);
+
+#SubSub("按频率抽取FFT(DIF-FFT)")
+
+#FLI() 与DIT-FFT相似, DIF按 $X(k)$ 下标拆分: $X_1 (r) = "DFT" [x(n) + x(n+N/2)], thin X_2 (r) = "DFT" [x(n) - W_N^n x(n+N/2)]$; 蝶形图表示为:
+
+#FLI() FFT计算复杂度分析: 总复数乘: $M dot N/2$; 总复数加: $N dot M$;
+
+#SubSub("IDFT的快速算法IFFT")
+#FLI() $x(n)= 1/N ("DFT" [X^* (k)] )^*$
+
+#SubSection("4-base FFT算法(略)")
+#SubSection("实序列FFT算法(略)")
+#FLI() 优化方法: 1. 同步完成2次实序列FFT运算; 2. 通过N/2点FFT;
+
+#Section("无限冲激响应(IIR)数字滤波器设计")
+#SubSection("滤波器的基本概念")
+#SubSection("滤波器的技术指标")
+#FLI() Def. 容限值 $k_1 , k_2$: 通带/阻带边界处(即截止频率 $Omega_p, Omega_s$)的增益 $|H(j Omega)|$; 最大起伏值 $alpha_p = - 20 lg (|H(1)|) / (|H(e^(j Omega_p))|)$, 最小衰减值 $alpha_s = - 20 lg (|H(1)|)/(|H(e^(j Omega_s)|)$; 数字滤波器参数的表示形式与之一致, 数字频率用 $omega$ 表示;
+#SubSection("数字滤波器设计任务")
+#FLI() IIR滤波器设计目标为 $(sum b_r z^(-r))/(1 - sum s_k z^(-k))$, FIR滤波器设计目标为 $sum b_r z^(-r)$, 二者区别较大;
+#SubSection("模拟滤波器设计")
+#SubSub("巴特沃斯(batter)滤波器设计")
+#FLI() 设计目标 $|H(Omega)|^2 = 1/(1+(Omega / Omega_c)^2)$, 极点 $j Omega_k = s_k = e^{j pi/N k}$,
+为满足因果性 $H(s) = 1/(B_N (s)) = 1/(product_(k=1)^N (s - s_k))$, 其中 $B_N (s)$ 称为归一化batter多项式;
+
+#FLI() $N$ 与 $alpha_p , alpha_s , Omega_p , Omega_s$ 的关系和 $Omega_c in [Omega_p, Omega_s]$ 裕量:
+$
+  cases(
+    N & >= (lg sqrt(10^(0.1 alpha_s) - 1) - lg sqrt(10^(0.1 alpha_p) - 1) ) / (lg Omega_s - lg Omega_p),
+    Omega_c & = (Omega_p)/(10^(0.1 alpha_p) - 1)^(1/(2 N)) quad,
+    Omega_c & = (Omega_s)/(10^(0.1 alpha_s) - 1)^(1/(2 N)) quad
+  )
+$
+
+#SubSub("切比雪夫滤波器设计*")
+#FLI() 设计 $|H| = 1/(1 + epsilon^2 T^2_N (Omega))$, 其中 $T_N$ 为对 $cos(N arccos(x))$ 的延拓;
+
+#SubSection("数字滤波器设计")
+
+#SubSub("引言")
+
+#SubSub("冲激响应不变法")
+#FLI() 对模拟滤波器的冲激响应采样得到数字滤波器的冲激响应: $h(n) = h_a (n T)$, 其中a表示analog, $T$ 为采样间隔; 若 $H_a (s)$ 具有有理分式的形式 $sum (A_k)/(s-s_k)$, 则 $H(z) = sum (A_k)/(1 - e^(s_k T) z^(-1))$; 这一变化只保持极点处的性质, 然而 $H(z) != H_a (s) |_(z = e^(s T))$;
+
+#SubSub("双线性映射法")
+#FLI() 考虑 $s= j Omega thin -> thin z = e^(j omega) thin ,quad Omega in R, omega in (-pi,pi)$ 的一对一映射, 得到 $s = 2/T (1-z^(-1))/(1+z^(-1))$ 和 $z=(1 + 1/2 T s)/( 1 - 1/2 T s)$, 称为双线性映射; 模拟频率和数字频率的关系为 $Omega = 2/T tan(omega/2)$, 在这一关系下 $H(z) = H(s)$;
+
+#SubSub("频率变换法设计IIR带通, 带阻, 高通滤波器*")
+#FLI() 直接给出频域关系 $s=s(z)$ 或 $z' = z' (z)$;
+#SubSub("IIR直接设计法*")
+
+#Section("FIR数字滤波器设计")
+#SubSection("FIR数字滤波器线性相位特性")
+
 #Section("")
 #SubSection("")
