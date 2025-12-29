@@ -222,5 +222,45 @@ $
 #Section("FIR数字滤波器设计")
 #SubSection("FIR数字滤波器线性相位特性")
 
-#Section("")
-#SubSection("")
+#FLI() Nomenclature. $H(e^(j omega)) = H_g (omega) e^(- j theta (omega))$ 记 $H_g (omega)$ 为幅度特性, $theta (omega)$ 为相位特性;
+
+#FLI() Def. 第一类线性相位: $theta (omega) = - tau omega$; 第二类线性相位: $theta (omega) = theta_0 - tau omega$;
+
+#FLI() Theorem. 对 $N$ 点FIR滤波器(满足 $h(0)!=0, h(N-1)!+0, {h(n)}!={0}, h(x) = 0 thin (forall x >=N)$), 第一类线性相位的充要条件是 $h (n) = h (N-1-n)$, 第二类线性相位的充要条件是 $h(n) = - h (N-1-n)$;
+
+Proof. 必要性: 相位 $theta_0 - tau omega$ 等价于 $"Im" (H(e^(j omega)) e^( j (theta_0 - omega(n - tau)) )) = 0 quad (exists theta,tau, forall omega)$,
+则对 $forall n_1, h(n_1)!=0$, 有 $exists n_2 !+ n_1, "s.t." theta_0 - omega(n_1 - tau) = plus.minus (theta_0 - omega(n_2 - tau)) + k pi$ (否则 $e^(-j omega n_1)$ 不能由 ${e^(-j omega n)|n!=n_1}$ 线性表示), 则 $n_1 + n_2 = tau$ 且 $2 theta_0 = k pi$; 由边界条件 $h(0)!=0, h(N-1)!=0$ 得到 $tau=N-1$; 对第一类边界条件 $theta_0 = 0$ 有 $h(n_1) - h(n_2) = 0 thin (n_1 + n_2 = N-1)$, 对第二类边界条件 $theta_0 = - pi/2$ 有 $h(n_1) + h(n_2) = 0 thin (n_1 + n_2 = N-1)$;
+
+充分性: 显然; 证毕
+
+#FLI() 第一类线性相位下
+$
+   H_g (omega) & = sum_(n=0)^(N-1) h(n) cos(omega(n - (N-1)/2)) \
+               & = sum_(n=0)^([N/2]-1) 2 h(n) cos(omega(n - (N-1/2))) , \
+  theta(omega) & = - (N-1)/2 omega
+$
+第二类线性相位下
+$
+   H_g (omega) & = sum_(n=0)^(N-1) h(n) sin(omega(n - (N-1)/2)) \
+               & = sum_(n=0)^([N/2]-1) 2 h(n) sin(omega(n - (N-1)/2)), \
+  theta(omega) & = - (N-1)/2 omega - pi/2
+$
+
+#FLI() Prop. (1) 1st, N even: $H_g (0) = sum h(n), H_g (pi) = 0$; (2) 1st, N odd: $H_g (omega) = sum h(n), H_g (pi) = h ((N-1)/2)$; (3) 2nd, N even: $H_g (0) = 0, H_g (pi) = sum h(n)$; (4) 2nd, N odd: $H_g (0) = 0, H_g (pi) = 0$;
+
+#SubSection("线性相位FIR滤波器的零点特性")
+
+#FLI() 若 $r_k e^(j phi_k)$ 为线性相位FIR滤波器的零点, 则 $(r_k)^(plus.minus 1) e^(plus.minus j phi_k)$ 为一组零点, 这一组零点构成实系数方程的解, 因此线性相位FIR滤波器可以乘法分解为若干一阶/二阶/四阶多项式;
+
+#SubSection("窗函数设计法")
+
+#FLI() 即对理想(desired)滤波器的单位取样响应加窗 $h(n) = h_d (n) w_N (n)$, 其中 $w_N (n)$ 为 $N$ 点窗函数;
+
+#SubSection("频率采样设计法")
+#SubSub("第一类线性相位FIR滤波器的频率采样设计")
+#SubSub("第二类线性相位FIR滤波器的频率采样设计")
+
+#SubSection("切比雪夫逼近法*")
+#SubSection("数字滤波器IIR/FIR比较")
+
+#Section("数字信号处理技术的应用*")
