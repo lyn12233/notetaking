@@ -1,5 +1,24 @@
 #import "../typst_utils/utils.typ": *
 
+#set text(..default_text_parm)
+#set par(..default_par_parm)
+#set table(stroke: none)
+#set pagebreak(weak: true)
+
+#set image(..default_image_parm)
+#set grid(..default_grid_parm)
+#show bibliography: set grid(..default_bib_grid_parm)
+
+#show figure.where(kind: image): set figure(..default_FOI_parm)
+#show figure.where(kind: table): set figure(..default_FOT_parm)
+#show figure.caption: set text(size: font_size_zh.WuHao)
+#show figure.where(kind: table): set figure.caption(position: top)
+
+#show heading.where(level: 1): set heading(numbering: "1")
+#show heading.where(level: 2): set heading(numbering: "1.1")
+
+#show math.equation: set text(font: ("New Computer Modern Math", "SimSun"))
+
 #Section("绪论")
 #SubSection("数字信号处理的基本概念")
 #SubSection("信号的基本概念")
