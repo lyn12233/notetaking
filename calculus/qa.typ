@@ -39,3 +39,18 @@ $
 #FLI() A.
 $ g(x) = (f(x))/(integral^1_0 f(x') "d" x') $
 在 $[0,1]$ 连续, 原问题等价于 $integral^1_0 ln g(x) "d" x <=0 quad (integral^1_0 g(x) "d" x = 1)$, 显然
+
+#FLI() Q. ${f_n}$ 满足
+$
+  integral^1_0 f_1 (x) "d" x & >= integral^1_0 f_0 (x) "d" x \
+                 f_(n+1) (x) & = (2 f^2_n (x) )/( f_n (x) + f_(n-1) (x) )
+$
+证 $integral^1_0 f_n (x) "d" x$ 递增收敛
+
+#FLI() A.
+$
+  f_(n+1) - f_n & = ( f^2_n - f^2_(n+1) ) / ( f_n + f_(n+1) ) \
+                & = ( ( f_n - f_(n-1) )^2 + f^2_n - f^2_(n-1) ) / ( 2( f_n + f_(n-1) ) ) \
+                & >= ( f^2_n - f^2_(n-1) ) / ( 2( f_n + f_(n-1) ) ) \
+                & = ( f_n - f_(n-1) )/2
+$
