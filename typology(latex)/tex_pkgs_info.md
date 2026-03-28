@@ -47,3 +47,18 @@ support image access and transform and layout control. see [its document](https:
 
 ## xcolor
 
+## caption
+
+control the behavior of caption
+
+### commands
+
+- `\captionsetup{width = ...}`
+
+### examples
+
+## subcaption
+
+provides subfigure type and catpion format
+
+## booktabs

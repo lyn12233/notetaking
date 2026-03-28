@@ -67,4 +67,6 @@ chinese headings:
 
     example: ctex.sty conflict with article.cls in my class. need to load `article` first
 
+3. `pdfTeX error (\pdfcolorstack): not allowed in DVI mode`
 
+    this error occurs when running latexmk. should specify `-pdf` .
