@@ -51,13 +51,13 @@ $$\begin{cases}
 - $s$ 方向上, 按负载初值 $U_L, I_L$ 确定:
     $$ \begin{cases}
         U(s) = U_L \ch \gamma s + I_L Z_0 \sh \gamma s \\
-        I(s) = \frac {U_L}{Z_0} \sh \gamma s + I_2 \ch \gamma s\\
+        I(s) = \frac {U_L}{Z_0} \sh \gamma s + I_L \ch \gamma s\\
         \end{cases}
     $$
 
 ## 1.2 传输线低损耗近似
 
-在 $  $ 时, 存在近似 $  $;
+在 $\alpha \ll 1 \space(\gamma=\alpha+j\beta)$ 时, 存在近似 $\gamma \approx j \beta + ...$.
 
 在后面的内容中不考虑损耗;
 
@@ -391,7 +391,7 @@ $$A(\vec r) = \iiint \vec{J}(\vec{r}') \frac{e^{-jkR}}{4\pi R} \mathrm d V$$
         E_{\theta} = \frac{j \eta Il}{2\lambda r} \sin \theta e^{-jkr}\\
         H_{\phi} = \frac{jIl}{2\lambda r} \sin \theta e ^{-jkr}
     \end{cases}$$
-    方向性函数 $F(\theta,\phi) = \sin \theta$, 辐射功率 $P_f = \iiint \frac 1 2 \vec E \times \vec H^* \mathrm d S = P_r + j P_x$, 其中辐射功率 $P_r = \frac{\eta \pi}{3} (\frac{Il}{\lambda})^2 = 40pi^1 (\frac{Il}{\lambda})^2$. 定义辐射电阻 $R_r = \frac{P_r}{2 |I|^2} = 80\pi^2 (\frac l \lambda)^2$.
+    方向性函数 $F(\theta,\phi) = \sin \theta$, 辐射功率 $P_f = \iiint \frac 1 2 \vec E \times \vec H^* \mathrm d S = P_r + j P_x$, 其中辐射功率 $P_r = \frac{\eta \pi}{3} (\frac{Il}{\lambda})^2 = 40\pi^2 (\frac{Il}{\lambda})^2$. 定义辐射电阻 $R_r = \frac{P_r}{2 |I|^2} = 80\pi^2 (\frac l \lambda)^2$.
 - 磁振子:略
 - 对称振子: 电流分布 $I(z) = I_m \sin k(l-|z|)$, 远场:
     $$E_{\theta} = \frac{j \eta I_m}{2 \pi r} e^{-jkr}[\frac{\cos(kl\cos\theta) - \cos(kl)}{\sin\theta}]$$
