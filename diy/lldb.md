@@ -19,10 +19,71 @@ lldb supports debug adaptive protocol (DAP).
 
 ### common usage
 
-attaching to a file/thread:
+start debug:
+```
+target create <filename>
+process launch
+```
 
-breakpoint to specific file/line/function:
+```
+process attach --pid <pid> --name <process-name>
+```
+
+set breakpoint to specific file/line/function:
+```
+breakpoint set (-f|--file) <file> (-l|--line) <line> (-n|--name) <function-name> (-c|--condition) <condition> (-s|--shlib) <shared-lib-name> (-C|--command) <command> -N <bkpt-name> (-G|--auto-continue)
+```
+
+set breakpoint callbacks:
+```
+breakpoint command add --script-type (command|python|lua|default) <bkpt-id>
+```
 
 flow control:
+```
+process continue
+thread (continue|step-in|step-out|step-over|step-inst|step-over-inst)
+thread until <n>
+```
 
 show execution state/variables:
+```
+thread (list|select|backtrace)
+frame variable <expr>
+frame variable (-D|--depth) <depth> (-P|--ptr-depth) <depth> (-Z|--element-count) <count> (-r|--regex) (-s|--scope) (argument|local|global|static) <variable-name>
+```
+
+lookup source code:
+```
+target modules lookup (-A|--all) (-i|--no-inlines) (-v|--verbose) (-r|--regex) ( 
+    (-f|--file) <file> | 
+    (-s|--symbol) <symbol> | 
+    (-F|--function) <function> | 
+    (-t|--type) <type> 
+)
+```
+
+aliases:
+```
+command alias <name> <cmd:([-\w]+|%\d+)(\s+([-\w]+|%\d+))*>
+command unalias <name>
+```
+
+backtrace:
+```
+bt (\d+|all)
+```
+
+### useful default aliases
+```
+br = breakpoint
+r = run = process launch --
+c = process continue
+n = next = thread step-over
+finish = thread step-out
+ni = thread step-inst
+si = thread step-over-inst
+f = frame select
+image = frame modules
+file = target create
+```
