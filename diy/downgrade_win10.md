@@ -18,7 +18,6 @@ apps may or may not be complete after in this process. to fix them:
 | app          | suggestion         |     |
 | ------------ | ------------------ | --- |
 | 7zip         | choco              |     |
-| bandizip     | na                 |     |
 | basic-miktex | delete and install |     |
 | chocolatey   | install            |     |
 | cmake        | choco              |     |
@@ -34,15 +33,15 @@ apps may or may not be complete after in this process. to fix them:
 | llvm         | delete and install |     |
 | miniconda    | delete and install |     |
 | msys         | add to path        |     |
-| nvidia-app   | recommended        |     |
-| potplayer    | update fix         |     |
+| nvidia-app   | (recommended)      |     |
+| potplayer    | update             |     |
 | qqnt(qq)     | re-run fix         |     |
 | rustup(rust) | choco              |     |
 | steam        | re-run fix         |     |
 | VS2022       | install            |     |
 | vmware       | delete and install |     |
 | vscode       | install            |     |
-| wechat       | na                 |     |
+| wechat       | update             |     |
 | wps          | re-run fix         |     |
 | youdaodict   | update             |     |
 
