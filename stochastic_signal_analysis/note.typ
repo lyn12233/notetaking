@@ -1,23 +1,15 @@
-#import "../typst_utils/utils.typ":*
+#import "../style.typ": get_thesis_by_name
 
-#set text(..default_text_parm)
-#set par(..default_par_parm)
-#set table(stroke: none)
-#set pagebreak(weak: true)
+#let thesis = get_thesis_by_name("lyn12233.note.1")
 
-#set image(..default_image_parm)
-#set grid(..default_grid_parm)
-#show bibliography: set grid(..default_bib_grid_parm)
+#show: thesis.begin
+#show: thesis.main_body
 
-#show figure.where(kind: image): set figure(..default_FOI_parm)
-#show figure.where(kind: table): set figure(..default_FOT_parm)
-#show figure.caption: set text(size: font_size_zh.WuHao)
-#show figure.where(kind: table): set figure.caption(position: top)
-
-#show heading.where(level: 1): set heading(numbering: "1")
-#show heading.where(level: 2): set heading(numbering: "1.1")
-
-#show math.equation: set text(font: ("New Computer Modern Math", "SimSun"))
+#let Section(x, ..args) = { heading(x, level: 1) }
+#let SubSection(x, ..args) = { heading(x, level: 2) }
+#let SubSub(x, ..args) = { heading(x, level: 3) }
+#let FLI() = {}
+#let Paragraph(x) = { x }
 
 #Paragraph[
   本课程主要包括随机信号分析, 信号检测盒信号估计3个部分, 实际只涉及随机信号分析部分.
@@ -157,7 +149,7 @@ _note_: 定理在绝对可积条件和平稳性下成立
 
 #FLI() *DEF* 复随机信号的相关函数 $R_(Z_1 Z_2) (t_1 , t_2) = E[Z_1^* (t_1) Z_2 (t_2)]$ (第一项取共轭)
 
-#FLI() *DEF* 希尔伯特变换: $H(omega) = -j "sgn" (omega), h(t) = 1/(pi t)$, 对信号的作用为 $hat(X) = X(t) times.o h(t)$
+#FLI() *DEF* 希尔伯特变换: $ H(omega) = -j "sgn" (omega), h(t) = 1/(pi t) $ 对信号的作用为 $hat(X) = X(t) times.o h(t)$
 
 #FLI() *PROP* Hilbert 变换实现 $+90degree$ 相移, 意义是(1)由实信号构造复信号同时实部和虚部正交, 即解析复信号; (2) 构造单边功率谱并不改变信号的实部.
 

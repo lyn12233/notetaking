@@ -1,23 +1,16 @@
-#import "../typst_utils/utils.typ": *
+#import "../style.typ": get_thesis_by_name
 
-#set text(..default_text_parm)
-#set par(..default_par_parm)
-#set table(stroke: none)
-#set pagebreak(weak: true)
+#let thesis = get_thesis_by_name("lyn12233.note.1")
 
-#set image(..default_image_parm)
-#set grid(..default_grid_parm)
-#show bibliography: set grid(..default_bib_grid_parm)
+#show: thesis.begin
+#show: thesis.main_body
 
-#show figure.where(kind: image): set figure(..default_FOI_parm)
-#show figure.where(kind: table): set figure(..default_FOT_parm)
-#show figure.caption: set text(size: font_size_zh.WuHao)
-#show figure.where(kind: table): set figure.caption(position: top)
 
-#show heading.where(level: 1): set heading(numbering: "1")
-#show heading.where(level: 2): set heading(numbering: "1.1")
-
-#show math.equation: set text(font: ("New Computer Modern Math", "SimSun"))
+#let Section(x, ..args) = { heading(x, level: 1) }
+#let SubSection(x, ..args) = { heading(x, level: 2) }
+#let SubSub(x, ..args) = { heading(x, level: 3) }
+#let FLI() = {}
+#let Paragraph(x) = { x }
 
 #Section("绪论")
 #SubSection("数字信号处理的基本概念")

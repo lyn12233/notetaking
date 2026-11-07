@@ -1,28 +1,21 @@
-#import "../typst_utils/utils.typ": *
+#import "../style.typ": get_thesis_by_name
 
-#set text(..default_text_parm)
-#set par(..default_par_parm)
-#set table(stroke: none)
-#set pagebreak(weak: true)
+#let thesis = get_thesis_by_name("lyn12233.note.1")
 
-#set image(height: 5cm, width: 6.67cm)
-#set grid(columns: 2, gutter: 10pt)
-
-#show figure.where(kind: image): set figure(..default_FOI_parm)
-#show figure.where(kind: table): set figure(..default_FOT_parm)
-#show figure.caption: set text(size: font_size_zh.WuHao)
-#show figure.where(kind: table): set figure.caption(position: top)
-
-#show heading.where(level: 1): set heading(numbering: "1")
-#show heading.where(level: 2): set heading(numbering: "1.1")
-
-#show math.equation: set text(font: ("New Computer Modern Math", "Songti SC"))
+#show: thesis.begin
+#show: thesis.main_body
 
 #[
   #set align(center)
-  #set text(size: font_size_zh.SanHao)
+  #set text(size: 20pt)
   信息论笔记
 ]
+
+#let Section(s, ..args) = { heading(s, level: 1) }
+#let SubSection(s, ..args) = { heading(s, level: 2) }
+
+#let Paragraph(body) = { body }
+
 #Section("1-绪论", sdisp: none)
 #Paragraph[
   信息论的产生：Shannon 通信的数学理论，1984
@@ -38,18 +31,12 @@
 ]
 #Paragraph[
   信息论的主要内容：一个概念，三个定理
-  #nlist(
-    [信息的度量：],
-    [
-      无失真信源编码:$R>=H <=> exists$
-    ],
-    [
-      信道容量和可靠传输:$R<C <=> P_E -> 0$
-    ],
-    [
-      信息率失真理论: $R>R(D) <=> overline(D)<=D$
-    ],
-  )
+
+  - 信息的度量：,
+    无失真信源编码:$R>=H <=> exists$
+  - 信道容量和可靠传输:$R<C <=> P_E -> 0$
+  - 信息率失真理论: $R>R(D) <=> overline(D)<=D$
+
 ]
 
 
@@ -125,12 +112,11 @@ EXT 平均互信息的链原则
 #SubSection("信源的描述")
 ?对单符号信源, 可用$p_i$描述,
 #SubSection("信源的扩展")
-#nlist(
-  [等长消息扩展:],
-  [
-    变长消息扩展:
-  ],
-)
+- 等长消息扩展:,
+
+- 变长消息扩展:
+
+
 #SubSection("信源的熵")
 
 DEF N次扩展源平均符号熵: $H_N (X) = N^(-1)H(X_1...X_N)$
@@ -362,7 +348,7 @@ $
 不具备的性质:非负性(p(x)可以未归一化);一一对应变换下的不变性
 
 THE $y=f(x),f:RR^N -> RR^N$则$h(Y^N)=h(X^N)-integral dif V (p(arrow(x)) log |det(J)| )$,式中
-$J_(i j')=(diff x_i)/(diff y^j')$
+$J_(i j')=(dif x_i)/(dif y^j')$
 
 EXT $h(A dot X^N + alpha)=h(X^N)+log |det(A)|$
 
